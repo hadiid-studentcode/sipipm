@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FasilitatorController;
+use App\Http\Controllers\KepanitiaanController;
+use App\Http\Controllers\MengelolaMateriController;
+use App\Http\Controllers\MengelolaKegiatanController;
+
+
 
 
 /*
@@ -19,4 +25,8 @@ Route::get('/', function () {
     return view('Login.index');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::resource('/dashboard', DashboardController::class);
+Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class);
+Route::resource('/kepanitiaan', KepanitiaanController::class);
+Route::resource('/fasilitator', FasilitatorController::class);
+Route::resource('/mengelola-materi', MengelolaMateriController::class);

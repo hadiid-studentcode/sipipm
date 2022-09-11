@@ -50,6 +50,9 @@
                   <i class="fas fa-expand-arrows-alt"></i>
               </a>
           </li>
+
+
+          <span class="slider round"></span>
          
 
           <li class="nav-item">
