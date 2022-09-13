@@ -9,22 +9,21 @@
                     <div class="sticky-top mb-3">
                         <div class="card">
                             <div class="card-header">
+
                                 <h4 class="card-title">Kegiatan Yang akan Datang</h4>
                             </div>
                             <div class="card-body">
+
                                 <!-- the events -->
                                 <div id="external-events">
                                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="https://images.unsplash.com/photo-1662671081709-edaf10461090?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                                                <img src="{{ URL::asset('dist/img/logotm1.png') }}" class="d-block w-100"
+                                                    alt="...">
                                             </div>
-                                            <div class="carousel-item">
-                                                <img src="https://images.unsplash.com/photo-1662581871665-f299ba8ace07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="https://images.unsplash.com/photo-1662752384818-3d51ef2e6a71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
-                                            </div>
+
+
                                         </div>
                                         <button class="carousel-control-prev" type="button"
                                             data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -43,7 +42,7 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-                      
+
                     </div>
                 </div>
                 <!-- /.col -->
@@ -51,6 +50,8 @@
                     <div class="card card-primary">
                         <div class="card-body">
                             <div class="text-center">
+                              
+
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#modal-lg"><svg xmlns="http://www.w3.org/2000/svg" width="20"
                                         height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -59,28 +60,35 @@
                                             d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                     </svg> Tambah Kegiatan</button>
                                 <div class="modal fade" id="modal-lg">
+
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title"></h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <!-- general form elements disabled -->
-                                                <div class="card card-warning">
+                                            <form action="{{ URL::asset('/mengelola-kegiatan') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title"></h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- general form elements disabled -->
+                                                    <div class="card card-warning">
 
-                                                    <!-- /.card-header -->
-                                                    <div class="card-body">
-                                                        <form>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+
+
                                                             <div class="row">
                                                                 <div class="col-sm-6">
                                                                     <!-- text input -->
                                                                     <div class="form-group">
-                                                                        <label>Nama kegiatan *</label>
-                                                                        <input type="text" class="form-control">
+                                                                        <label>Nama kegiatan <b
+                                                                                style="color: red">*</b></label>
+                                                                        <input type="text" class="form-control"
+                                                                            name="nama" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-6">
@@ -90,7 +98,8 @@
                                                                             <div class="custom-file">
                                                                                 <input type="file"
                                                                                     class="custom-file-input"
-                                                                                    id="exampleInputFile">
+                                                                                    id="exampleInputFile"
+                                                                                    name="upload_logo">
                                                                                 <label class="custom-file-label"
                                                                                     for="exampleInputFile">Choose
                                                                                     file</label>
@@ -104,51 +113,67 @@
                                                                 <div class="col-sm-6">
                                                                     <!-- textarea -->
                                                                     <div class="form-group">
-                                                                        <label>Tema Kegiatan</label>
-                                                                        <textarea class="form-control" rows="3"></textarea>
+                                                                        <label>Tema Kegiatan <b
+                                                                                style="color: red">*</b></label>
+                                                                        <textarea class="form-control" rows="3" name="tema" required></textarea>
                                                                     </div>
                                                                 </div>
 
                                                             </div>
 
                                                             <!-- input states -->
-                                                            <div class="form-group">
-                                                                <label class="col-form-label"> Tanggal Pelaksanaan
-                                                                    *</label>
-                                                                <input type="text" class="form-control">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <!-- text input -->
+                                                                    <div class="form-group">
+                                                                        <label class="col-form-label"> Tanggal
+                                                                            Pelaksanaan,<br>Dari:
+                                                                            <b style="color: red">*</b></label>
+                                                                        <input type="date" class="form-control"
+                                                                            name="dari" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label class="col-form-label"> Tanggal
+                                                                            Pelaksanaan,<br>Sampai:
+                                                                            <b style="color: red">*</b></label>
+                                                                        <input type="date" class="form-control"
+                                                                            name="sampai" required>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <label class="col-form-label">Deskripsi Singkat *</label>
-                                                                <input type="text" class="form-control">
+                                                                <label class="col-form-label">Deskripsi Singkat <b
+                                                                        style="color: red">*</b></label>
+                                                                <input type="text" class="form-control" required
+                                                                    name="deskripsi">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-form-label">Tujuan Kegiatan</label>
 
-                                                                <textarea class="form-control " name="" id="" cols="30" rows="10"></textarea>
+                                                                <textarea class="form-control " name="tujuan" id="" cols="30" rows="10"></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-form-label">Informasi Kegiatan</label>
 
-                                                                <textarea class="form-control " name="" id="" cols="30" rows="10"></textarea>
+                                                                <textarea class="form-control " name="informasi" id="" cols="30" rows="10"></textarea>
                                                             </div>
 
-
-
-
-
-
-                                                        </form>
+                                                        </div>
+                                                        <!-- /.card-body -->
                                                     </div>
-                                                    <!-- /.card-body -->
+                                                    <!-- /.card -->
                                                 </div>
-                                                <!-- /.card -->
-                                            </div>
-                                            <div class="modal-footer justify-content-between">
-                                                <button type="button" class="btn btn-default"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
                                         </div>
+
                                         <!-- /.modal-content -->
                                     </div>
                                     <!-- /.modal-dialog -->
@@ -242,50 +267,17 @@
                 themeSystem: 'bootstrap',
                 //Random default events
                 events: [{
-                        title: 'All Day Event',
-                        start: new Date(y, m, 1),
-                        backgroundColor: '#f56954', //red
-                        borderColor: '#f56954', //red
-                        allDay: true
-                    },
-                    {
                         title: 'Long Event',
-                        start: new Date(y, m, d - 5),
-                        end: new Date(y, m, d - 2),
+                        start: new Date("2022-09-30"),
+                        end: new Date("2022-10-3"),
+                        url: 'https://www.google.com/',
                         backgroundColor: '#f39c12', //yellow
                         borderColor: '#f39c12' //yellow
                     },
-                    {
-                        title: 'Meeting',
-                        start: new Date(y, m, d, 10, 30),
-                        allDay: false,
-                        backgroundColor: '#0073b7', //Blue
-                        borderColor: '#0073b7' //Blue
-                    },
-                    {
-                        title: 'Lunch',
-                        start: new Date(y, m, d, 12, 0),
-                        end: new Date(y, m, d, 14, 0),
-                        allDay: false,
-                        backgroundColor: '#00c0ef', //Info (aqua)
-                        borderColor: '#00c0ef' //Info (aqua)
-                    },
-                    {
-                        title: 'Birthday Party',
-                        start: new Date(y, m, d + 1, 19, 0),
-                        end: new Date(y, m, d + 1, 22, 30),
-                        allDay: false,
-                        backgroundColor: '#00a65a', //Success (green)
-                        borderColor: '#00a65a' //Success (green)
-                    },
-                    {
-                        title: 'Click for Google',
-                        start: new Date(y, m, 28),
-                        end: new Date(y, m, 29),
-                        url: 'https://www.google.com/',
-                        backgroundColor: '#3c8dbc', //Primary (light-blue)
-                        borderColor: '#3c8dbc' //Primary (light-blue)
-                    }
+
+
+
+
                 ],
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!

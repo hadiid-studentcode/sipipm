@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('notif', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('nba', 100)->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable(); 
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('isi_notif');
+            $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('status', ['1', '0']);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('notif');
     }
 };

@@ -35,10 +35,15 @@
     <link rel="stylesheet" href="{{ URL::asset('plugins/summernote/summernote-bs4.min.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-         <!-- fullCalendar -->
-  <link rel="stylesheet" href="{{ URL::asset('plugins/fullcalendar/main.css') }}">
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="{{ URL::asset('plugins/fullcalendar/main.css') }}">
     {{-- akhir --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{ URL::asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="{{ URL::asset('plugins/toastr/toastr.min.css') }}">
 
     <link rel="icon" href="{{ asset('dist/img/logotm1.png') }}">
 
@@ -86,7 +91,7 @@
 
 
 
-          
+
         </div>
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -139,7 +144,7 @@
     <!-- overlayScrollbars -->
     <script src="{{ URL::asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
-    
+
     <script src="{{ URL::asset('/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ URL::asset('/dist/js/demo.js') }}"></script>
@@ -153,37 +158,53 @@
     </script>
 
     <!-- DataTables  & Plugins -->
-<script src="{{ URL::asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/jszip/jszip.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/toastr/toastr.min.js') }}"></script>
 
- <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-    
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+
+
+       
+    </script>
+
+    <script>
+         $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
+
+
+
 
 
 

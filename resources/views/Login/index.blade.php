@@ -14,7 +14,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/login/css/style.css') }}">
-     <link rel="icon" href="{{ asset('dist/img/logotm1.png') }}">
+    <link rel="icon" href="{{ asset('dist/img/logotm1.png') }}">
 
 
     <title>Selamat Datang</title>
@@ -25,21 +25,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ URL::asset('dist/img/logotm1.png') }}" width="80%" alt="Image"
-                        class="img-fluid">
+                    <img src="{{ URL::asset('dist/img/logotm1.png') }}" width="80%" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="mb-4">
                                 <h3>SISTEM INFORMASI PERKADERAN (TM1)</h3>
+                                {{-- notif --}}
+
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                        <strong> {{ session('error') }}</strong>
+                                    </div>
+                                @endif
+                                {{-- akhir notif --}}
                                 <p class="mb-4">Selamat Datang dan Silahkan Login Terlebih dahulu</p>
                             </div>
                             <form action="{{ URL::asset('/login') }}" method="POST">
                                 @csrf
                                 <div class="form-group first">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username">
+                                    <label for="username">Nomor Bangku Anggota IPM</label>
+                                    <input type="text" class="form-control" id="username" name="nba">
 
                                 </div>
                                 <div class="form-group last mb-4">
@@ -48,7 +57,7 @@
 
                                 </div>
 
-                                <div class="d-flex mb-5 align-items-center">
+                                {{-- <div class="d-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-0"><span class="caption">Remember
                                             me</span>
                                         <input type="checkbox" name="remember"/>
@@ -56,7 +65,7 @@
                                     </label>
                                     <span class="ml-auto"><a href="#" class="forgot-pass">Forgot
                                             Password</a></span>
-                                </div>
+                                </div> --}}
 
                                 <input type="submit" value="Log In" class="btn btn-block btn-primary">
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
 class MengelolaKegiatanController extends Controller
@@ -13,12 +14,12 @@ class MengelolaKegiatanController extends Controller
      */
     public function index()
     {
+
+       
+
         return view('dashboard.MengelolaKegiatan.index')
-        ->with('title', 'Mengelola Kegiatan')
-        ->with('active','kegiatan');
-
-
-        
+            ->with('title', 'Mengelola Kegiatan')
+            ->with('active', 'kegiatan');
     }
 
     /**
@@ -39,7 +40,41 @@ class MengelolaKegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'upload_logo' => 'required',
+            'upload_logo.*' => 'mimes:doc,docx,PDF,pdf,jpg,jpeg,png|max:2000'
+        ]);
+        if ($request->hasfile('upload_logo')) {
+            $upload_logo = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('upload_logo')->getClientOriginalName());
+
+
+
+
+
+            $request->file('upload_logo')->move(public_path('dist/img/kegiatan'), $upload_logo);
+
+            $data = [
+                'nama' => $request->input('nama'),
+                'tema' => $request->input('tema'),
+                'dari' => $request->input('dari'),
+                'sampai' => $request->input('sampai'),
+                'deskripsi' => $request->input('deskripsi'),
+                'tujuan' => $request->input('tujuan'),
+                'informasi' => $request->input('informasi'),
+                'upload_logo' => $upload_logo
+            ];
+
+            // simpan kegiatan
+            $kegiatan = new Kegiatan();
+            $kegiatan->simpanKegiatan($data);
+
+
+           return redirect('/mengelola-kegiatan')
+           ->with('success','Kegiatan Berhasil Disimpan');
+        } else {
+           return back()
+           ->with('warning','Kegiatan Gagal Disimpan');
+        }
     }
 
     /**

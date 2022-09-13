@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
@@ -21,12 +22,25 @@ use App\Http\Controllers\MengelolaKegiatanController;
 |
 */
 
-Route::get('/', function () {
-    return view('Login.index');
-});
+// Route::get('/', function () {
+//     return view('Login.index');
+// });
 
-Route::resource('/dashboard', DashboardController::class);
-Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class);
-Route::resource('/kepanitiaan', KepanitiaanController::class);
-Route::resource('/fasilitator', FasilitatorController::class);
-Route::resource('/mengelola-materi', MengelolaMateriController::class);
+
+Route::get('/', function () {
+
+    return redirect('/login');
+})->name('login')->middleware('guest');;
+
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
+
+
+
+
+Route::resource('/dashboard', DashboardController::class)->middleware('auth');
+Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class)->middleware('auth');
+Route::resource('/kepanitiaan', KepanitiaanController::class)->middleware('auth');
+Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth');
+Route::resource('/mengelola-materi', MengelolaMateriController::class)->middleware('auth');
