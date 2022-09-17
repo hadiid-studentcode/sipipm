@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('isi_notif');
             $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->enum('status', ['1', '0']);
+            $table->string('url');
             $table->timestamps();
         });
     }

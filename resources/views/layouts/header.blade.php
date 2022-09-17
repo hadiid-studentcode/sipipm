@@ -16,31 +16,67 @@
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
 
+          <?php
+          
+          $notif = new App\Models\Notif();
+          //  jumlah notif
+          $jumlahNotif = $notif->JumlahNotif();
+          //  data notif
+          $dataNotif = $notif->callNotif();
+          
+          ?>
 
-         
+
+
+
+
+
           <!-- Notifications Dropdown Menu -->
           <li class="nav-item dropdown">
               <a class="nav-link" data-toggle="dropdown" href="#">
                   <i class="far fa-bell"></i>
-                  <span class="badge badge-warning navbar-badge">15</span>
+                
+                      @if ($jumlahNotif == 0)
+                      
+                        @else
+                          <span class="badge badge-warning navbar-badge">
+                          {{ $jumlahNotif }}
+                      @endif
+                  </span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <span class="dropdown-item dropdown-header">15 Notifications</span>
+                  <span class="dropdown-item dropdown-header">
+                      @if ($jumlahNotif == 0)
+                          Nothing
+                      @else
+                          {{ $jumlahNotif }}
+                      @endif Notifications
+                  </span>
                   <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                      <i class="fas fa-envelope mr-2"></i> 4 new messages
-                      <span class="float-right text-muted text-sm">3 mins</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                       <i class="far fa-bell"></i> 8 new saved actions
-                      <span class="float-right text-muted text-sm">12 hours</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                      <i class="fas fa-file mr-2"></i> 3 new reports
-                      <span class="float-right text-muted text-sm">2 days</span>
-                  </a>
+
+                  @foreach ($dataNotif as $notif)
+                      <a href="{{ URL::asset($notif->url) }}" class="dropdown-item"
+                          onclick="
+                        
+                        <?php
+                        DB::table('notif')
+                            ->where('id', $notif->id)
+                            ->update(['status' => '1']);
+                        
+                        ?>
+                        
+                        
+                        ">
+
+
+
+
+                          <i class="far fa-bell "></i> <span class="text-danger">{{ $notif->isi_notif }}</span>
+                          <span class="float-right text-muted text-sm">3 mins</span>
+                      </a>
+                  @endforeach
+
+
                   <div class="dropdown-divider"></div>
                   <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
               </div>
@@ -53,10 +89,10 @@
 
 
           <span class="slider round"></span>
-         
+
 
           <li class="nav-item">
-              <a class="nav-link " href="{{ URL::asset('/logout') }}" >
+              <a class="nav-link " href="{{ URL::asset('/logout') }}">
                   <span class="material-symbols-outlined">
                       logout
                   </span>

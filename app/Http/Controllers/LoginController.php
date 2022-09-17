@@ -9,6 +9,8 @@ class LoginController extends Controller
 {
     public function login(){
 
+    
+
         if (Auth::check()) {
             return redirect('/dashboard');
         } else {

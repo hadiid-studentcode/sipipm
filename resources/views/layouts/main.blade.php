@@ -55,10 +55,10 @@
 
 
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+        {{-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{ URL::asset('dist/img/logotm1.png') }}" alt="logoUmri" height="150"
                 width="150">
-        </div>
+        </div> --}}
 
         @include('layouts.header')
 

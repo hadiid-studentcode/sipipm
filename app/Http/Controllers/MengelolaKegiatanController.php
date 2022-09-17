@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
+use App\Models\Notif;
 use Illuminate\Http\Request;
 
 class MengelolaKegiatanController extends Controller
@@ -14,7 +15,8 @@ class MengelolaKegiatanController extends Controller
      */
     public function index()
     {
-
+       
+        
        
 
         return view('dashboard.MengelolaKegiatan.index')
@@ -68,9 +70,15 @@ class MengelolaKegiatanController extends Controller
             $kegiatan = new Kegiatan();
             $kegiatan->simpanKegiatan($data);
 
+            $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+            $url = '/' . $pecahurl[4];
 
-           return redirect('/mengelola-kegiatan')
-           ->with('success','Kegiatan Berhasil Disimpan');
+            // simpan notif
+            $notif = new Notif();
+            $notif->insertNotif('Kegiatan Anda Berhasil Ditambahkan ! ',$url);
+
+
+           return redirect('/mengelola-kegiatan');
         } else {
            return back()
            ->with('warning','Kegiatan Gagal Disimpan');

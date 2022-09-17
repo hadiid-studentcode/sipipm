@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'hadiidandri2000@gmail.com',
             'password' => bcrypt('hadiidandriy12'),
         ]);
+
+
+
+        // \App\Models\Notif::factory(10)->create();
     }
 }
 
