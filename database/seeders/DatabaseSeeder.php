@@ -38,6 +38,9 @@ class DatabaseSeeder extends Seeder
             'tempat' => 'MA Muhammadiyah Pekanbaru',
             'upload_logo' => '1663565324307-logotm1.png'
         ]);
+
+         
+
     }
 }
 

@@ -8,7 +8,8 @@
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form>
+                    <form action="{{ URL::asset('/kepanitiaan') }}" method="POST">
+                        @csrf
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah Panitia</h5>
@@ -16,40 +17,44 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="nama">Nama lengkap</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" name="namap">
+                                    <label for="nama">Nama lengkap <b style="color: red">*</b></label>
+                                    <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap"
+                                        required name="namap">
                                 </div>
                                 <div class="form-group">
                                     <label for="nba">Nomor Bangku Anggota IPM</label>
-                                    <input type="text" class="form-control" id="nba" name="nbap" placeholder="00.00.00000">
-                                </div>
-                                 <div class="form-group">
-                                    <label for="nba">Nomor Wa</label>
-                                    <input type="number" class="form-control" id="wa" name="wap" placeholder="0000-0000-0000">
+                                    <input type="text" class="form-control" id="nba" name="nbap" required
+                                        placeholder="00.00.00000">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nba">Jenis Kelamin</label>
+                                    <label for="nba">Nomor Wa <b style="color: red">*</b></label>
+                                    <input type="number" class="form-control" id="wa" name="wap"
+                                        placeholder="0000-0000-0000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
                                     <select class="form-select" aria-label="jk" name="jkp">
                                         <option selected>Pilih Jenis Kelamin</option>
                                         <option value="Ipmawan">Ipmawan</option>
                                         <option value="Ipmawati">Ipmawati</option>
-                                        
+
                                     </select>
                                 </div>
-                                  <div class="form-group">
-                                    <label for="nba">Jabatan Kepanitiaan</label>
+                                <div class="form-group">
+                                    <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
                                     <select class="form-select" aria-label="jk" name="jp">
                                         <option selected>Pilih Jabatan</option>
                                         <option value="Ketua Panitia">Ketua Panitia</option>
                                         <option value="Sekretaris Panitia">Sekretaris Panitia</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="gambarp">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile"
+                                                name="gambarp">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
@@ -63,7 +68,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                     </form>
                 </div>
