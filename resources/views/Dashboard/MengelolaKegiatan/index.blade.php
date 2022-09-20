@@ -15,31 +15,48 @@
                             <div class="card-body">
 
                                 <!-- the events -->
+
+
+
+
                                 <div id="external-events">
-                                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="{{ URL::asset('dist/img/logotm1.png') }}" class="d-block w-100"
-                                                    alt="...">
+                                    @foreach ($kegiatanAcara as $acara)
+                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="{{ URL::asset('dist/img/kegiatan/' . $acara->upload_logo) }}"
+                                                        class="d-block w-100" alt="{{ $acara->nama }}">
+                                                </div>
+
+
+
                                             </div>
 
-
                                         </div>
-                                        <button class="carousel-control-prev" type="button"
-                                            data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button"
-                                            data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
+                                        <h3>{{ $acara->nama }}</h3>
+                                        <p class="text-muted">{{ $acara->tema }}</p>
+                                        <a href="{{ URL::asset('/mengelola-kegiatan/' . $acara->nama) }}"> <button
+                                                type="button" class="btn btn-info"><i class="bi bi-eye"></i>
+                                                Detail</button></a>
+
+
+
+
                                 </div>
+
+
+
+
+
 
                             </div>
                             <!-- /.card-body -->
+                            <div class="card-footer">
+
+                                <h4 class="card-title text-danger"
+                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ date('d F Y', strtotime($acara->dari)); }} - {{ date('d F Y', strtotime($acara->sampai)); }}</h4>
+                            </div>
+                            @endforeach
                         </div>
                         <!-- /.card -->
 
@@ -50,7 +67,7 @@
                     <div class="card card-primary">
                         <div class="card-body">
                             <div class="text-center">
-                              
+
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#modal-lg"><svg xmlns="http://www.w3.org/2000/svg" width="20"
@@ -258,6 +275,8 @@
                 }
             });
 
+
+
             var calendar = new Calendar(calendarEl, {
                 headerToolbar: {
                     left: 'prev,next today',
@@ -266,19 +285,26 @@
                 },
                 themeSystem: 'bootstrap',
                 //Random default events
+
+                <?php
+                $data = new App\Models\Kegiatan();
+                $kegiatan = $data->queryKegiatan();
+                
+                ?>
+
+                <?php foreach($kegiatan as $kg){  ?>
+
                 events: [{
-                        title: 'Long Event',
-                        start: new Date("2022-09-30"),
-                        end: new Date("2022-10-3"),
-                        url: 'https://www.google.com/',
-                        backgroundColor: '#f39c12', //yellow
-                        borderColor: '#f39c12' //yellow
-                    },
+                    title: '{{ $kg->nama }}',
+                    start: new Date("{{ $kg->dari }}"),
+                    end: new Date("{{ $kg->sampai }}"),
+                    backgroundColor: '#f39c12', //yellow
+                    borderColor: '#f39c12' //yellow
+                }, ],
+
+                <?php } ?>
 
 
-
-
-                ],
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!
                 drop: function(info) {

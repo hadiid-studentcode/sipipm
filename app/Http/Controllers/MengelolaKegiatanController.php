@@ -15,13 +15,16 @@ class MengelolaKegiatanController extends Controller
      */
     public function index()
     {
-       
-        
-       
+
+        $data = new Kegiatan();
+        $kegiatan = $data->queryKegiatan();
+
+
 
         return view('dashboard.MengelolaKegiatan.index')
             ->with('title', 'Mengelola Kegiatan')
-            ->with('active', 'kegiatan');
+            ->with('active', 'kegiatan')
+            ->with('kegiatanAcara', $kegiatan);
     }
 
     /**
@@ -56,13 +59,13 @@ class MengelolaKegiatanController extends Controller
             $request->file('upload_logo')->move(public_path('dist/img/kegiatan'), $upload_logo);
 
             $data = [
-                'nama' => $request->input('nama'),
-                'tema' => $request->input('tema'),
+                'nama' => strtoupper($request->input('nama')),
+                'tema' =>  ucfirst($request->input('tema')),
                 'dari' => $request->input('dari'),
                 'sampai' => $request->input('sampai'),
-                'deskripsi' => $request->input('deskripsi'),
-                'tujuan' => $request->input('tujuan'),
-                'informasi' => $request->input('informasi'),
+                'deskripsi' => ucfirst($request->input('deskripsi')),
+                'tujuan' => ucfirst($request->input('tujuan')),
+                'informasi' => ucfirst($request->input('informasi')),
                 'upload_logo' => $upload_logo
             ];
 
@@ -75,13 +78,13 @@ class MengelolaKegiatanController extends Controller
 
             // simpan notif
             $notif = new Notif();
-            $notif->insertNotif('Kegiatan Anda Berhasil Ditambahkan ! ',$url);
+            $notif->insertNotif('Kegiatan Anda Berhasil Ditambahkan ! ', $url);
 
 
-           return redirect('/mengelola-kegiatan');
+            return redirect('/mengelola-kegiatan');
         } else {
-           return back()
-           ->with('warning','Kegiatan Gagal Disimpan');
+            return back()
+                ->with('warning', 'Kegiatan Gagal Disimpan');
         }
     }
 
@@ -91,9 +94,20 @@ class MengelolaKegiatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nama)
     {
-        //
+
+        $data = new Kegiatan();
+        $detail = $data->detailKegiatan($nama);
+
+       
+
+
+
+        return view('Dashboard.MengelolaKegiatan.detail')
+            ->with('title', 'Detail Kegiatan')
+            ->with('active', 'kegiatan')
+            ->with('detail', $detail);
     }
 
     /**

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('tujuan');
             $table->text('informasi');
+            $table->string('tempat','100');
             $table->string('upload_logo');
             $table->timestamps();
         });

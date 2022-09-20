@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Kegiatan extends Model
 {
@@ -17,7 +18,9 @@ class Kegiatan extends Model
         'deskripsi',
         'tujuan',
         'informasi',
+        'tempat',
         'upload_logo'
+
     ];
     protected $primaryKey = 'id';
 
@@ -25,6 +28,20 @@ class Kegiatan extends Model
     public function simpanKegiatan($data)
     {
         $result = Kegiatan::create($data);
+        return $result;
+    }
+
+    public function queryKegiatan()
+    {
+        $result = Kegiatan::all();
+
+        return $result;
+    }
+
+    public function detailKegiatan($nama)
+    {
+        $result = Kegiatan::where('nama', $nama)->first();
+
         return $result;
     }
 }
