@@ -54,7 +54,9 @@
                             <div class="card-footer">
 
                                 <h4 class="card-title text-danger"
-                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ date('d F Y', strtotime($acara->dari)); }} - {{ date('d F Y', strtotime($acara->sampai)); }}</h4>
+                                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                    {{ date('d F Y', strtotime($acara->dari)) }} -
+                                    {{ date('d F Y', strtotime($acara->sampai)) }}</h4>
                             </div>
                             @endforeach
                         </div>
@@ -299,7 +301,8 @@
                     start: new Date("{{ $kg->dari }}"),
                     end: new Date("{{ $kg->sampai }}"),
                     backgroundColor: '#f39c12', //yellow
-                    borderColor: '#f39c12' //yellow
+                    borderColor: '#f39c12', //yellow
+                   
                 }, ],
 
                 <?php } ?>

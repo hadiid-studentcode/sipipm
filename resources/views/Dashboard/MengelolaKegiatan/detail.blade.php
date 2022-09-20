@@ -53,7 +53,7 @@
                                 <p class="text-muted">{{ $detail->tempat }}</p><strong>Tanggal</strong>
                                 <p class="text-muted">{{ date('d F Y', strtotime($detail->dari)); }} - {{ date('d F Y', strtotime($detail->sampai)); }}</p><strong>Contact Person</strong>
                                 <p class="text-muted">, </p><strong>Informasi Detail</strong>
-                                <p class="text-muted"></p>
+                                <p class="text-muted">{{ $detail->informasi }}</p>
                             </div>
                         </div>
                     </div>
