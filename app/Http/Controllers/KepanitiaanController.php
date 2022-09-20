@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Panitia;
 use Illuminate\Http\Request;
 
 class KepanitiaanController extends Controller
@@ -13,9 +14,16 @@ class KepanitiaanController extends Controller
      */
     public function index()
     {
+
+        $result = new Panitia();
+        $panitia = $result->dataPanitia();
+
+
+
         return view('Dashboard.Kepanitiaan.index')
             ->with('title', 'Kepanitiaan')
-            ->with('active', 'kepanitiaan');
+            ->with('active', 'kepanitiaan')
+            ->with('panitia',$panitia);
     }
 
     /**
@@ -36,7 +44,7 @@ class KepanitiaanController extends Controller
      */
     public function store(Request $request)
     {
-        dd(1);
+        dd($request->all());
     }
 
     /**

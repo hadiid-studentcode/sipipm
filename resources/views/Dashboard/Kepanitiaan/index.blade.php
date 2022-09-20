@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nba">Nomor Bangku Anggota IPM</label>
-                                    <input type="text" class="form-control" id="nba" name="nbap" required
+                                    <input type="text" class="form-control" id="nba" name="nbap"
                                         placeholder="00.00.00000">
                                 </div>
                                 <div class="form-group">
@@ -35,8 +35,8 @@
                                     <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
                                     <select class="form-select" aria-label="jk" name="jkp">
                                         <option selected>Pilih Jenis Kelamin</option>
-                                        <option value="Ipmawan">Ipmawan</option>
-                                        <option value="Ipmawati">Ipmawati</option>
+                                        <option value="Laki - laku">Laki - laki </option>
+                                        <option value="Perempuan">Perempuan</option>
 
                                     </select>
                                 </div>
@@ -44,8 +44,10 @@
                                     <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
                                     <select class="form-select" aria-label="jk" name="jp">
                                         <option selected>Pilih Jabatan</option>
-                                        <option value="Ketua Panitia">Ketua Panitia</option>
-                                        <option value="Sekretaris Panitia">Sekretaris Panitia</option>
+                                        @foreach ($panitia as $p)
+                                            <option value="{{ $p }}">{{ $p }}</option>
+                                        @endforeach
+
 
                                     </select>
                                 </div>
