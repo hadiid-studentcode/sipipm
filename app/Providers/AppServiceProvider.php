@@ -22,18 +22,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    // public function boot()
-    // {
-        
-    // }
-
-    public function boot(\Illuminate\Http\Request $request)
+    public function boot()
     {
-        if (!empty(env('NGROK_URL')) && $request->server->has('HTTP_X_ORIGINAL_HOST')) {
-            $this->app['url']->forceRootUrl(env('NGROK_URL'));
-        }
-
-        // other code
+        
     }
+
+    
 
 }
