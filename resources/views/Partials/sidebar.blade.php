@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-6">
     <!-- Brand Logo -->
-    <a href="{{ URL::asset('/dashboard') }}" class="brand-link">
+    <a href="{{ URL::asset('/dashboard') }}" class="brand-link text-decoration-none">
         <img src="{{ URL::asset('dist/img/logotm1.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">SIP IPM TM 1</span>
@@ -15,7 +15,7 @@
                 <img src="{{ URL::asset('dist/img/hadiid.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{ URL::asset('/dashboard') }}" class="d-block">Hadiid Andri Yulison</a>
+                <a href="{{ URL::asset('/dashboard') }}" class="d-block text-decoration-none">Hadiid Andri Yulison</a>
             </div>
         </div>
 

@@ -211,7 +211,7 @@
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+        <!-- /.content -->
 
     <!-- fullCalendar 2.2.5 -->
     <script src="{{ URL::asset('plugins/moment/moment.min.js') }}"></script>

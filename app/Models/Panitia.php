@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Panitia extends Model
 {
@@ -45,5 +46,29 @@ class Panitia extends Model
     ];
 
     return $data;
+  }
+
+  public function simpanPanitia($data)
+  {
+    $result = Panitia::create($data);
+    return $result;
+  }
+
+  public function contackPerson()
+  {
+
+    $result = DB::table('panitia')
+      ->select('wa')
+      ->where('jabatan', '=', 'Ketua Panitia')
+     ->first();
+
+
+    return $result;
+  }
+
+  public function queryPanitia(){
+    $result = Panitia::all();
+
+    return $result;
   }
 }

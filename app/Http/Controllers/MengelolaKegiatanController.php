@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
 use App\Models\Notif;
+use App\Models\Panitia;
 use Illuminate\Http\Request;
 
 class MengelolaKegiatanController extends Controller
@@ -100,6 +101,11 @@ class MengelolaKegiatanController extends Controller
         $data = new Kegiatan();
         $detail = $data->detailKegiatan($nama);
 
+        $data = new Panitia();
+        $ketuaPanitia = $data->contackPerson();
+
+
+
        
 
 
@@ -107,7 +113,8 @@ class MengelolaKegiatanController extends Controller
         return view('Dashboard.MengelolaKegiatan.detail')
             ->with('title', 'Detail Kegiatan')
             ->with('active', 'kegiatan')
-            ->with('detail', $detail);
+            ->with('detail', $detail)
+            ->with('ketuaPanitia',$ketuaPanitia);
     }
 
     /**
