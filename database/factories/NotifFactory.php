@@ -20,6 +20,7 @@ class NotifFactory extends Factory
             'isi_notif' => $this->faker->word(),
             'id_user' => 1,
             'status' => "0",
+            'url' => '/fasilitator'
         ];
     }
 }

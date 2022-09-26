@@ -24,6 +24,8 @@
           //  data notif
           $dataNotif = $notif->callNotif();
           
+          $notif = $dataNotif;
+          
           ?>
 
 
@@ -35,13 +37,12 @@
           <li class="nav-item dropdown">
               <a class="nav-link" data-toggle="dropdown" href="#">
                   <i class="far fa-bell"></i>
-                
-                      @if ($jumlahNotif == 0)
-                      
-                        @else
-                          <span class="badge badge-warning navbar-badge">
+
+                  @if ($jumlahNotif == 0)
+                  @else
+                      <span class="badge badge-warning navbar-badge">
                           {{ $jumlahNotif }}
-                      @endif
+                  @endif
                   </span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -61,6 +62,7 @@
                         <?php
                         DB::table('notif')
                             ->where('id', $notif->id)
+                        
                             ->update(['status' => '1']);
                         
                         ?>

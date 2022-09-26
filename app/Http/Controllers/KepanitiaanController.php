@@ -23,6 +23,8 @@ class KepanitiaanController extends Controller
         $ketuaPanitia = $data->contackPerson();
         $tampilPanitia = $data->queryPanitia();
 
+        
+
 
 
 
@@ -54,6 +56,7 @@ class KepanitiaanController extends Controller
     public function store(Request $request)
     {
 
+   
 
 
 
@@ -138,8 +141,18 @@ class KepanitiaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nama)
     {
-        //
+       $result = new Panitia();
+       $result->deletePanitia($nama);
+
+        $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+        $url = '/' . $pecahurl[4];
+
+        // simpan notif
+        $notif = new Notif();
+        $notif->insertNotif('Panitia Berhasil Dihapus ! ', $url);
+
+       return redirect('/kepanitiaan');
     }
 }

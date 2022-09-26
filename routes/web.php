@@ -22,15 +22,15 @@ use App\Http\Controllers\MengelolaKegiatanController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('Login.index');
-// });
+Route::get('/test', function () {
+    return view('test');
+})->name('login')->middleware('guest');
 
 
 Route::get('/', function () {
 
     return redirect('/login');
-})->name('login')->middleware('guest');;
+})->name('login')->middleware('guest');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

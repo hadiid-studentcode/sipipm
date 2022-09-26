@@ -39,6 +39,8 @@ class DatabaseSeeder extends Seeder
             'upload_logo' => '1663565324307-logotm1.png'
         ]);
 
+
+          \App\Models\Notif::factory(10)->create();
          
 
     }

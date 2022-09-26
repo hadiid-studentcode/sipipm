@@ -28,7 +28,7 @@ class Notif extends Model
     {
         $result = DB::table('notif')
             ->where('id_user', '=', Auth::user()->id)
-            ->where('id', '<', 4)
+            // ->where('id', '<', 4)
             ->where('status', '=', '0')
             ->get();
 

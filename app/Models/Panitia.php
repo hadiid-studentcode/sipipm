@@ -71,4 +71,10 @@ class Panitia extends Model
 
     return $result;
   }
+
+  public function deletePanitia($nama){
+    $deleted = Panitia::where('nama', $nama)->delete();
+
+    return $deleted;
+  }
 }
