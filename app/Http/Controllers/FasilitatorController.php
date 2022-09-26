@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fasilitator;
 use App\Models\Notif;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class FasilitatorController extends Controller
 {
@@ -52,8 +53,8 @@ class FasilitatorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'gambarf' => 'required',
-            'gambarf.*' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
+           
+            'gambarf' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
         ]);
         if ($request->hasfile('gambarf')) {
             $gambarf = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('gambarf')->getClientOriginalName());
@@ -86,10 +87,40 @@ class FasilitatorController extends Controller
 
 
             return redirect('/fasilitator');
-        } else {
+
+        } elseif ($request->hasfile('gambarp') == false) {
+            $data = [
+                'nama' => $request->input('namaf'),
+                'nba' => $request->input('nbaf'),
+                'wa' => '+' . $request->input('waf'),
+                'jk' => $request->input('jkf'),
+                'jabatan' => $request->input('jf'),
+                'foto' => $request->input('gambarf')
+            ];
+
+            // simpan kegiatan
+            $kegiatan = new Fasilitator();
+            $kegiatan->simpanFasilitator($data);
+
+            $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+            $url = '/' . $pecahurl[4];
+
+            // simpan notif
+            $notif = new Notif();
+            $notif->insertNotif('Fasilitator Berhasil Ditambahkan ! ', $url);
+
+
+            return redirect('/fasilitator');
+        }
+        
+        
+        
+        else{
             return back()
                 ->with('warning', 'Panitia Gagal Disimpan');
         }
+
+    
     }
 
     /**

@@ -71,7 +71,7 @@ class KepanitiaanController extends Controller
         if ($request->hasfile('gambarp')) {
 
 
-        
+
             $gambarp = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('gambarp')->getClientOriginalName());
             $request->file('gambarp')->move(public_path('dist/img/panitia'), $gambarp);
 
@@ -117,7 +117,7 @@ class KepanitiaanController extends Controller
             // simpan notif
             $notif = new Notif();
             $notif->insertNotif('Panitia Berhasil Ditambahkan ! ', $url);
-              return redirect('/kepanitiaan');
+            return redirect('/kepanitiaan');
         } else {
             return back()
                 ->with('warning', 'Panitia Gagal Disimpan');
