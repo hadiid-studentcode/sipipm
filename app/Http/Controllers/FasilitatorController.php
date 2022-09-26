@@ -92,7 +92,7 @@ class FasilitatorController extends Controller
             $data = [
                 'nama' => $request->input('namaf'),
                 'nba' => $request->input('nbaf'),
-                'wa' => '+' . $request->input('waf'),
+                'wa' => '+62' . $request->input('waf'),
                 'jk' => $request->input('jkf'),
                 'jabatan' => $request->input('jf'),
                 'foto' => $request->input('gambarf')

@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                     <label for="nba">Nomor Wa <b style="color: red">*</b></label>
                                     <input type="number" class="form-control" id="wa" name="waf"
-                                        placeholder="0000-0000-0000" value="62">
+                                        placeholder="0000-0000-0000" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="nba">Jenis Kelamin <b style="color: red">*</b></label>
