@@ -23,7 +23,7 @@ class KepanitiaanController extends Controller
         $ketuaPanitia = $data->contackPerson();
         $tampilPanitia = $data->queryPanitia();
 
-        
+
 
 
 
@@ -34,7 +34,7 @@ class KepanitiaanController extends Controller
             ->with('active', 'kepanitiaan')
             ->with('panitia', $panitia)
             ->with('ketuaPanitia', $ketuaPanitia)
-            ->with('dataPanitia',$tampilPanitia);
+            ->with('dataPanitia', $tampilPanitia);
     }
 
     /**
@@ -56,29 +56,31 @@ class KepanitiaanController extends Controller
     public function store(Request $request)
     {
 
-   
+
 
 
 
         $request->validate([
-            'gambarp' => 'required',
+
             'gambarp.*' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
         ]);
+
+
+
+
         if ($request->hasfile('gambarp')) {
+
+
+        
             $gambarp = round(microtime(true) * 1000) . '-' . str_replace(' ', '-', $request->file('gambarp')->getClientOriginalName());
-
-
-
-
-
             $request->file('gambarp')->move(public_path('dist/img/panitia'), $gambarp);
 
             $data = [
                 'nama' => $request->input('namap'),
-                'nba' =>$request->input('nbap'),
-                'wa'=> '+'.$request->input('wap'),
-                'jk'=> $request->input('jkp'),
-                'jabatan'=> $request->input('jp'),
+                'nba' => $request->input('nbap'),
+                'wa' => '+62' . $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
                 'foto' => $gambarp
             ];
 
@@ -95,6 +97,27 @@ class KepanitiaanController extends Controller
 
 
             return redirect('/kepanitiaan');
+        } elseif ($request->hasfile('gambarp') == false) {
+            $data = [
+                'nama' => $request->input('namap'),
+                'nba' => $request->input('nbap'),
+                'wa' => '+62' . $request->input('wap'),
+                'jk' => $request->input('jkp'),
+                'jabatan' => $request->input('jp'),
+                'foto' => $request->input('gambarp')
+            ];
+
+            // simpan kegiatan
+            $kegiatan = new Panitia();
+            $kegiatan->simpanPanitia($data);
+
+            $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+            $url = '/' . $pecahurl[4];
+
+            // simpan notif
+            $notif = new Notif();
+            $notif->insertNotif('Panitia Berhasil Ditambahkan ! ', $url);
+              return redirect('/kepanitiaan');
         } else {
             return back()
                 ->with('warning', 'Panitia Gagal Disimpan');
@@ -143,8 +166,8 @@ class KepanitiaanController extends Controller
      */
     public function destroy($nama)
     {
-       $result = new Panitia();
-       $result->deletePanitia($nama);
+        $result = new Panitia();
+        $result->deletePanitia($nama);
 
         $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
         $url = '/' . $pecahurl[4];
@@ -153,6 +176,6 @@ class KepanitiaanController extends Controller
         $notif = new Notif();
         $notif->insertNotif('Panitia Berhasil Dihapus ! ', $url);
 
-       return redirect('/kepanitiaan');
+        return redirect('/kepanitiaan');
     }
 }

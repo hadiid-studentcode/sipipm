@@ -23,7 +23,15 @@
                             <!-- /.col -->
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                   <a class="text-decoration" href="https://api.whatsapp.com/send?phone={{ $ketuaPanitia->wa }}&text=Assalamualaikum%20Ketua%20Panitia%20"> <h5 class="description-header fs-2"><i class="bi bi-whatsapp"></i></h5></a>
+                                   <a class="text-decoration"
+                                   @if(isset($ketuaPanitia->wa))
+                                    href="https://api.whatsapp.com/send?phone={{ $ketuaPanitia->wa }}&text=Assalamualaikum%20Ketua%20Panitia%20">
+                                    @else
+                                    href="#">
+                                     <h5 class="description-header fs-2"><i class="bi bi-whatsapp"></i></h5></a>
+                                   @endif 
+                                    
+                                   
                                 </div>
                                 <!-- /.description-block -->
                             </div>
@@ -52,7 +60,14 @@
                                 <strong>Tempat</strong>
                                 <p class="text-muted">{{ $detail->tempat }}</p><strong>Tanggal</strong>
                                 <p class="text-muted">{{ date('d F Y', strtotime($detail->dari)); }} - {{ date('d F Y', strtotime($detail->sampai)); }}</p><strong>Contact Person</strong>
-                                <p class="text-muted">{{ $ketuaPanitia->wa }}</p><strong>Informasi Detail</strong>
+                                <p class="text-muted">
+                                    @if(isset($ketuaPanitia->wa))
+                                    {{ $ketuaPanitia->wa }}
+                                    @else
+                                    -
+                                    @endif
+                                    
+                                </p><strong>Informasi Detail</strong>
                                 <p class="text-muted">{{ $detail->informasi }}</p>
                             </div>
                         </div>
