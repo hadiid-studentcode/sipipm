@@ -21,7 +21,7 @@ class Notif extends Model
 
     public function User()
     {
-        return $this->belongsTo(Tbsatuan::class, 'id_user');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function callNotif()

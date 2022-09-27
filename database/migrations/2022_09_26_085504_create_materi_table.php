@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('materi', function (Blueprint $table) {
             $table->id();
+            $table->string('hari', 50);
+            $table->time('waktu_dari');
+            $table->time('waktu_sampai');
+            $table->foreignId('idMateri')->references('id')->on('bank_materi')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('fasilitator_pemateri', 200);
+            $table->string('fasilitator_pendamping', 200);
             $table->timestamps();
         });
     }

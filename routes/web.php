@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SilabusController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\MengelolaMateriController;
 use App\Http\Controllers\MengelolaKegiatanController;
+
 
 
 
@@ -44,3 +46,4 @@ Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class)->midd
 Route::resource('/kepanitiaan', KepanitiaanController::class)->middleware('auth');
 Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth');
 Route::resource('/mengelola-materi', MengelolaMateriController::class)->middleware('auth');
+Route::resource('/bank-materi', SilabusController::class)->middleware('auth');

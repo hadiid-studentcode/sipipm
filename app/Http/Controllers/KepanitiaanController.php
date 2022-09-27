@@ -62,7 +62,7 @@ class KepanitiaanController extends Controller
 
         $request->validate([
 
-            'gambarp.*' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
+            'gambarp' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
         ]);
 
 

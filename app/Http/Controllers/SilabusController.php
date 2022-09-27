@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BankMateri;
 use Illuminate\Http\Request;
 
-class MengelolaMateriController extends Controller
+class SilabusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +13,7 @@ class MengelolaMateriController extends Controller
      */
     public function index()
     {
-
-        
-
-
-        return view('Dashboard.MengelolaMateri.index')
-        ->with('title','Mengelola Materi')
-        ->with('active', 'materi');
+        dd(1);
     }
 
     /**
@@ -30,7 +23,7 @@ class MengelolaMateriController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.MengelolaMateri.create');
+        //
     }
 
     /**
