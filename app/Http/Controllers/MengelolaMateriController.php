@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\BankMateri;
+use App\Models\Fasilitator;
+use App\Models\Materi;
+use App\Models\Notif;
 use Illuminate\Http\Request;
 
 class MengelolaMateriController extends Controller
@@ -15,12 +18,22 @@ class MengelolaMateriController extends Controller
     public function index()
     {
 
+        $result = new BankMateri();
+        $materi = $result->Silabus();
+
+    
+        $result = new Fasilitator();
+        $fasilitator_pemateri = $result->FasilitatorPemateri();
+        $fasilitator_pendamping = $result->FasilitatorPendamping();
         
 
 
         return view('Dashboard.MengelolaMateri.index')
         ->with('title','Mengelola Materi')
-        ->with('active', 'materi');
+        ->with('active', 'materi')
+        ->with('materi',$materi)
+        ->with('pemateri', $fasilitator_pemateri)
+        ->with('pendamping', $fasilitator_pendamping);
     }
 
     /**
@@ -30,7 +43,13 @@ class MengelolaMateriController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.MengelolaMateri.create');
+
+        $data = new BankMateri();
+        $silabus = $data->Silabus();
+
+
+        return view('Dashboard.MengelolaMateri.create')
+        ->with('silabus',$silabus);
     }
 
     /**
@@ -41,7 +60,31 @@ class MengelolaMateriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'hari'=> $request->input('hari'),
+            'waktu_dari' => $request->input('wdari'),
+            'waktu_sampai' => $request->input('wsampai'),
+            'idMateri' => $request->input('materi'),
+            'id_fasilitator_pemateri' => $request->input('pemateri'),
+            'id_fasilitator_pendamping' => $request->input('pendamping'),
+            'status' => 'Belum Selesai'
+        ];
+
+       
+
+        // simpan kegiatan
+        $kegiatan = new Materi();
+        $kegiatan->simpanMateri($data);
+
+        $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+        $url = '/' . $pecahurl[4];
+
+        // simpan notif
+        $notif = new Notif();
+        $notif->insertNotif('Materi Berhasil Ditambahkan ! ', $url);
+
+
+        return redirect('/mengelola-materi');
     }
 
     /**

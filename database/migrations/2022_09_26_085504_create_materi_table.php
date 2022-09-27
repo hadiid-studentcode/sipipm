@@ -19,8 +19,9 @@ return new class extends Migration
             $table->time('waktu_dari');
             $table->time('waktu_sampai');
             $table->foreignId('idMateri')->references('id')->on('bank_materi')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('fasilitator_pemateri', 200);
-            $table->string('fasilitator_pendamping', 200);
+            $table->foreignId('id_fasilitator_pemateri')->nullable()->references('id')->on('fasilitator')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_fasilitator_pendamping')->nullable()->references('id')->on('fasilitator')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('status',['Selesai','Belum Selesai']);
             $table->timestamps();
         });
     }

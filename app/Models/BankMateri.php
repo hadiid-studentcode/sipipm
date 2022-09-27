@@ -30,4 +30,10 @@ class BankMateri extends Model
         $result = BankMateri::create($data);
         return $result;
     }
+
+    public function Silabus(){
+        $result = BankMateri::all();
+
+        return $result;
+    }
 }

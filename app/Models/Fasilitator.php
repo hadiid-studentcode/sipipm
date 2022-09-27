@@ -68,4 +68,22 @@ class Fasilitator extends Model
 
         return $deleted;
     }
+
+    public function FasilitatorPemateri()
+    {
+        $result = DB::table('fasilitator')
+        ->where('jabatan', '=', 'Fasilitator Pemateri')
+        ->get();
+
+        return $result;
+    }
+
+    public function FasilitatorPendamping()
+    {
+        $result = DB::table('fasilitator')
+        ->where('jabatan', '=', 'Fasilitator Pendamping')
+        ->get();
+
+        return $result;
+    }
 }
