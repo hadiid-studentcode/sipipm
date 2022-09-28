@@ -18,22 +18,41 @@ class MengelolaMateriController extends Controller
     public function index()
     {
 
-        $result = new BankMateri();
-        $materi = $result->Silabus();
+        // set the default timezone to use.
+       
+
+
+        $data = new BankMateri();
+        $silabus = $data->Silabus();
+      
 
     
         $result = new Fasilitator();
         $fasilitator_pemateri = $result->FasilitatorPemateri();
         $fasilitator_pendamping = $result->FasilitatorPendamping();
+
+
+        $result = new Materi();
+        $materi = $result->DataMateri();
+        $jumlah = $result->jumlahMateri();
+        $penanggungjawab = $result->PenanggungJawab();
+
+       
+    
+
+       
         
 
 
         return view('Dashboard.MengelolaMateri.index')
         ->with('title','Mengelola Materi')
         ->with('active', 'materi')
-        ->with('materi',$materi)
+        ->with('materi', $materi)
         ->with('pemateri', $fasilitator_pemateri)
-        ->with('pendamping', $fasilitator_pendamping);
+        ->with('pendamping', $fasilitator_pendamping)
+        ->with('jumlah',$jumlah)
+        ->with('silabus',$silabus)
+        ->with('pj',$penanggungjawab);
     }
 
     /**
@@ -48,6 +67,9 @@ class MengelolaMateriController extends Controller
         $silabus = $data->Silabus();
 
 
+
+
+
         return view('Dashboard.MengelolaMateri.create')
         ->with('silabus',$silabus);
     }
@@ -60,11 +82,18 @@ class MengelolaMateriController extends Controller
      */
     public function store(Request $request)
     {
+
+       
+
+
+      
+
         $data = [
             'hari'=> $request->input('hari'),
             'waktu_dari' => $request->input('wdari'),
             'waktu_sampai' => $request->input('wsampai'),
             'idMateri' => $request->input('materi'),
+            'PenanggungJawab' => $request->input('pj'),
             'id_fasilitator_pemateri' => $request->input('pemateri'),
             'id_fasilitator_pendamping' => $request->input('pendamping'),
             'status' => 'Belum Selesai'

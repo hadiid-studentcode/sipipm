@@ -15,8 +15,9 @@ class Materi extends Model
         'waktu_dari',
         'waktu_sampai',
         'idMateri',
-        'id_fasilitator_pemateri',
-        'id_fasilitator_pendamping',
+        'PenanggungJawab',
+        'fasilitator_pemateri',
+        'fasilitator_pendamping',
         'status'
 
     ];
@@ -28,15 +29,7 @@ class Materi extends Model
         return $this->belongsTo(BankMateri::class, 'idMateri');
     }
 
-    public function FasilitatorPendamping()
-    {
-        return $this->belongsTo(Fasilitator::class, 'id_fasilitator_pendamping');
-    }
-    public function FasilitatorPemateri()
-    {
-        return $this->belongsTo(Fasilitator::class, 'id_fasilitator_pemateri');
-    }
-
+   
     public function DataMateri(){
 
         $result = Materi::all();
@@ -49,6 +42,22 @@ class Materi extends Model
         $result = Materi::create($data);
         return $result;
     }
+
+    public function jumlahMateri(){
+        $result = DB::table('materi')->count();
+
+        return $result;
+    }
+
+    public function PenanggungJawab(){
+     $result =  DB::table('fasilitator')
+            ->where('jabatan', '<>', 'Fasilitator Pendamping')
+            ->where('jabatan', '<>', 'Fasilitator Pemateri')
+            ->get();
+
+            return $result;
+    }
+    
 
    
 }

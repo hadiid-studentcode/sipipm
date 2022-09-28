@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('materi', function (Blueprint $table) {
             $table->id();
-            $table->string('hari', 50);
+            $table->date('hari');
             $table->time('waktu_dari');
             $table->time('waktu_sampai');
             $table->foreignId('idMateri')->references('id')->on('bank_materi')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('id_fasilitator_pemateri')->nullable()->references('id')->on('fasilitator')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('id_fasilitator_pendamping')->nullable()->references('id')->on('fasilitator')->onDelete('cascade')->onUpdate('cascade');
-            $table->enum('status',['Selesai','Belum Selesai']);
+            $table->string('PenanggungJawab','100');
+            $table->foreignId('fasilitator_pemateri')->nullable();
+            $table->foreignId('fasilitator_pendamping')->nullable();
+            $table->enum('status', ['Selesai', 'Belum Selesai']);
             $table->timestamps();
         });
     }

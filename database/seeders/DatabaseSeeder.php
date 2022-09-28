@@ -613,7 +613,207 @@ HW Kalten, 2014) ',
             "penilaian" => '● Penilaian
 Kinerja',
         ];
-        
+
+
+
+        $agenda1 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Registrasi',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+
+        $agenda2 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Pembukaan',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda3 = [
+                "silabus" => "TM 1",
+                "standar_kompetensi" =>
+                "-",
+                "kompetensi_dasar" =>
+                "-",
+                "indikator" => '-',
+                "materi" => 'ISHOMA',
+                "detailMateri" => '-',
+                "strategi_pembelajaran" => '-',
+                "sks" => 2,
+                "referensi_acuan" => '-',
+                "penilaian" => '-',
+            ];
+        $agenda4 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Kontrak belajar',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda5 = [
+                "silabus" => "TM 1",
+                "standar_kompetensi" =>
+                "-",
+                "kompetensi_dasar" =>
+                "-",
+                "indikator" => '-',
+                "materi" => 'Pergi kedunia khayangan',
+                "detailMateri" => '-',
+                "strategi_pembelajaran" => '-',
+                "sks" => 2,
+                "referensi_acuan" => '-',
+                "penilaian" => '-',
+            ];
+        $agenda6 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Qiyamul Lail, Subuh & Kultum',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda7 = [
+                "silabus" => "TM 1",
+                "standar_kompetensi" =>
+                "-",
+                "kompetensi_dasar" =>
+                "-",
+                "indikator" => '-',
+                "materi" => 'Senam',
+                "detailMateri" => '-',
+                "strategi_pembelajaran" => '-',
+                "sks" => 2,
+                "referensi_acuan" => '-',
+                "penilaian" => '-',
+            ];
+        $agenda8 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'MCK & Sarapan',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda9 = [
+                "silabus" => "TM 1",
+                "standar_kompetensi" =>
+                "-",
+                "kompetensi_dasar" =>
+                "-",
+                "indikator" => '-',
+                "materi" => 'Shalat Dhuha',
+                "detailMateri" => '-',
+                "strategi_pembelajaran" => '-',
+                "sks" => 2,
+                "referensi_acuan" => '-',
+                "penilaian" => '-',
+            ];
+        $agenda10 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Ice Breaking',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda11 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'MCK & Ishoma',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda12 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'RKTL',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda13 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Sholat Zuhur',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+        $agenda14 = [
+            "silabus" => "TM 1",
+            "standar_kompetensi" =>
+            "-",
+            "kompetensi_dasar" =>
+            "-",
+            "indikator" => '-',
+            "materi" => 'Penutupan & Temu Ramah Alumni',
+            "detailMateri" => '-',
+            "strategi_pembelajaran" => '-',
+            "sks" => 2,
+            "referensi_acuan" => '-',
+            "penilaian" => '-',
+        ];
+       
       
 
         $result = new BankMateri();
@@ -627,6 +827,24 @@ Kinerja',
         $result->simpanPemateri($dataMateri8);
         $result->simpanPemateri($dataMateri9);
         $result->simpanPemateri($dataMateri10);
-    
+
+
+        $result->simpanPemateri($agenda1);
+        $result->simpanPemateri($agenda2);
+        $result->simpanPemateri($agenda3);
+        $result->simpanPemateri($agenda4);
+        $result->simpanPemateri($agenda5);
+        $result->simpanPemateri($agenda6);
+        $result->simpanPemateri($agenda7);
+        $result->simpanPemateri($agenda8);
+        $result->simpanPemateri($agenda9);
+        $result->simpanPemateri($agenda10);
+        $result->simpanPemateri($agenda11);
+        $result->simpanPemateri($agenda12);
+        $result->simpanPemateri($agenda13);
+        $result->simpanPemateri($agenda14);
+     
+        
+       
     }
 }

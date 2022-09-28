@@ -41,7 +41,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nba">Jabatan Kepanitiaan <b style="color: red">*</b></label>
+                                    <label for="nba">Jabatan Fasilitator <b style="color: red">*</b></label>
                                     <select class="form-select" aria-label="jk" name="jf">
                                         <option selected>Pilih Jabatan</option>
                                         @foreach ($fasilitator as $f)

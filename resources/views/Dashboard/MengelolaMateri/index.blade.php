@@ -11,7 +11,7 @@
                 <div class="d-grid gap-2 d-md-block">
                     <button class="btn btn-primary" type="button" onclick="Silabus()">Silabus Materi</button>
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#materi">Kelola Rowndown
-                        Materi</button </div>
+                    </button </div>
 
 
                 </div>
@@ -29,12 +29,7 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="hari" class="form-label">Hari</label>
-                                    <select class="form-select" aria-label="Default select example" name="hari"required>
-                                        <option selected>Pilih Hari</option>
-                                        <option value="Jumat">Jumat</option>
-                                        <option value="Sabtu">Sabtu</option>
-                                        <option value="Ahad">Ahad</option>
-                                    </select>
+                                    <input type="date" class="form-control" name="hari">
                                 </div>
                                 <div class="mb-3">
                                     <div class="row">
@@ -51,39 +46,58 @@
                                             <div class="form-group">
                                                 <label class="col-form-label"> Waktu
                                                     Pelaksanaan,<br>Sampai:
-                                                    <b style="color: red">*</b></label>
-                                                <input type="time" class="form-control" name="wsampai" required>
+                                                    <b style="color: red">*</b>
+                                                    <input type="time" class="form-control" name="wsampai" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Materi" class="form-label">Materi   <b style="color: red">*</b></label></label>
+                                    <label for="Materi" class="form-label">Materi / Kegiatan <b
+                                            style="color: red">*</b></label>
                                     <select class="form-select" aria-label="Default select example" name="materi"required>
-                                        <option selected>Pilih Materi</option>
-                                        @foreach($materi as $m)
-                                        <option value="<?php echo $m->id;?>"><?php echo $m->materi;?></option>
-                                      @endforeach
+                                        <option selected>Pilih Materi / Kegiatan</option>
+                                        @foreach ($silabus as $m)
+                                            <option value="<?php echo $m->id; ?>"><?php echo $m->materi; ?></option>
+                                        @endforeach
                                     </select>
                                 </div>
-                                  <div class="mb-3">
-                                    <label for="Materi" class="form-label">Fasilitator Pemateri   <b style="color: red">*</b></label></label>
-                                
-                                     <select class="form-select" aria-label="Default select example" name="pemateri"required >
+                                <div class="mb-3">
+                                    <label for="Materi" class="form-label">Penanggung Jawab <b
+                                            style="color: red">*</b></label>
+
+                                    <select class="form-select" aria-label="Default select example" name="pj"required>
+                                        <option selected>Pilih Penanggung Jawab</option>
+
+                                        @foreach ($pj as $p)
+                                            <option value="{{ $p->jabatan }}">{{ $p->jabatan }}</option>
+                                        @endforeach
+                                        <option value="Panitia">Panitia</option>
+                                        <option value="ALL">ALL</option>
+                                        <option value="ALL">Fasilitator</option>
+
+                                    </select>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Materi" class="form-label">Fasilitator Pemateri </label>
+
+                                    <select class="form-select" aria-label="Default select example" name="pemateri"required>
                                         <option selected>Pilih Fasilitator Pemateri</option>
-                                        @foreach($pemateri as $p)
-                                        <option value="<?php echo $p->id;?>"><?php echo $p->nama;?></option>
-                                      @endforeach
+                                        @foreach ($pemateri as $p)
+                                            <option value="<?php echo $p->id; ?>"><?php echo $p->nama; ?></option>
+                                        @endforeach
                                     </select>
-                                   
+
                                 </div>
-                                   <div class="mb-3">
-                                    <label for="Materi" class="form-label">Fasilitator Pendamping   <b style="color: red">*</b></label></label>
-                                      <select class="form-select" aria-label="Default select example" name="pendamping"required >
+                                <div class="mb-3">
+                                    <label for="Materi" class="form-label">Fasilitator Pendamping</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        name="pendamping"required>
                                         <option selected>Pilih Fasilitator Pendamping</option>
-                                        @foreach($pendamping as $pen)
-                                        <option value="<?php echo $pen->id;?>"><?php echo $pen->nama;?></option>
-                                      @endforeach
+                                        @foreach ($pendamping as $pen)
+                                            <option value="<?php echo $pen->id; ?>"><?php echo $pen->nama; ?></option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -108,22 +122,28 @@
                     <th>Waktu</th>
                     <th>Materi</th>
                     <th>Penanggung Jawab</th>
+                    <th>Fasilitator Pemateri</th>
+                    <th>Fasilitator Pendamping</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Senin/3 Juli
-                        2017
-                    </td>
-                    <td>08.00-09.00</td>
-                    <td>Registrasi</td>
-                    <td>Panitia</td>
-                    <td>
-                        Selesai
-                    </td>
-                </tr>
+                @foreach ($materi as $m)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ date('d F Y', strtotime($m->hari)) }}</td>
+                        <td>{{ $m->waktu_dari }} - {{ $m->waktu_sampai }}</td>
+                        <td><?php echo $m->BankMateri->materi; ?></td>
+                        <td>{{ $m->PenanggungJawab }}</td>
+                        <td>{{ $m->fasilitator_pemateri }}</td>
+                        <td>{{ $m->fasilitator_pendamping }}</td>
+                        <td>{{ $m->status }}</td>
+
+
+
+
+                    </tr>
+                @endforeach
             </tbody>
             <tfoot>
                 <tr>
@@ -132,7 +152,9 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th>Total Kepanitiaan : 100 Orang</th>
+                    <th></th>
+                    <th></th>
+                    <th>Total Materi : {{ $jumlah }}</th>
                 </tr>
             </tfoot>
         </table>
