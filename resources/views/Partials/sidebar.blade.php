@@ -59,6 +59,16 @@
                     </a>
 
                 </li>
+                  <li class="nav-item">
+                    <a href="{{ URL::asset('/peserta') }}" class="nav-link {{ $active == 'Peserta' ? 'active' : '' }} ">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Mengelola Peserta
+
+                        </p>
+                    </a>
+
+                </li>
                 <li class="nav-header">Manajemen Fasilitator</li>
 
 
@@ -136,7 +146,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ URL::asset('/penjualan') }}" class="nav-link">
+                            <a href="{{ URL::asset('/pre-post-test') }}" class=" nav-link {{ $active == 'PrePostTest' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pre - Post test</p>
                             </a>

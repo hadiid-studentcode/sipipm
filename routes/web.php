@@ -2,15 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\SilabusController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
+use App\Http\Controllers\PrepostTestController;
 use App\Http\Controllers\MengelolaMateriController;
 use App\Http\Controllers\MengelolaKegiatanController;
-
-
-
 
 
 /*
@@ -44,6 +43,13 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::resource('/dashboard', DashboardController::class)->middleware('auth');
 Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class)->middleware('auth');
 Route::resource('/kepanitiaan', KepanitiaanController::class)->middleware('auth');
+Route::resource('/peserta', PesertaController::class)->middleware('auth');
 Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth');
 Route::resource('/mengelola-materi', MengelolaMateriController::class)->middleware('auth');
 Route::resource('/bank-materi', SilabusController::class)->middleware('auth');
+
+Route::resource('/pre-post-test', PrepostTestController::class)->middleware('auth');
+
+
+
+

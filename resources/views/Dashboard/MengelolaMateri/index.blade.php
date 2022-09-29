@@ -74,7 +74,7 @@
                                         @endforeach
                                         <option value="Panitia">Panitia</option>
                                         <option value="ALL">ALL</option>
-                                        <option value="ALL">Fasilitator</option>
+                                        <option value="Fasilitator">Fasilitator</option>
 
                                     </select>
 

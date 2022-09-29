@@ -28,8 +28,9 @@
                                     href="https://api.whatsapp.com/send?phone={{ $ketuaPanitia->wa }}&text=Assalamualaikum%20Ketua%20Panitia%20">
                                     @else
                                     href="#">
-                                     <h5 class="description-header fs-2"><i class="bi bi-whatsapp"></i></h5></a>
-                                   @endif 
+                                    
+                                   @endif
+                                    <h5 class="description-header fs-2"><i class="bi bi-whatsapp"></i></h5></a> 
                                     
                                    
                                 </div>
