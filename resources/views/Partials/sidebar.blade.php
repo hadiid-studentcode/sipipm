@@ -152,9 +152,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ URL::asset('/penjualan/create') }}" class="nav-link">
+                            <a href="{{ URL::asset('/pemahaman-keaktifan') }}" class="nav-link {{ $active == 'pemahaman-keaktidan' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Skala Pemahaman</p>
+                                <p>Pemahaman/keaktifan</p>
                             </a>
                         </li>
                         <li class="nav-item">
