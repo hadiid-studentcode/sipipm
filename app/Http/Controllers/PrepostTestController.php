@@ -195,7 +195,7 @@ class PrepostTestController extends Controller
             $posttest = $post;
 
 
-            dd($posttest);
+           
 
 
 

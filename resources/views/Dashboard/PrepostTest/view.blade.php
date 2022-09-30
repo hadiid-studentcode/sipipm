@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pre-Post Test</title>
+    <title>{{ isset($pre) ? $pre->test : $post->test }} test</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="icon" href="{{ asset('dist/img/logotm1.png') }}">
@@ -17,22 +17,28 @@
 
     <div class=" text-center mt-5php artisan make:migration create_flights_table text-light">
         <div class="card-header">
-            <h1 style="text-transform: uppercase;">{{ $pre->test }} TEST <br> {{ $pre->materi }}</h1>
+            <h1 style="text-transform: uppercase;"> {{ isset($pre) ? $pre->test : $post->test }} TEST <br>  {{ isset($pre) ? $pre->materi : $post->materi }}</h1>
 
 
-            {{ $active == 'kepanitiaan' ? 'active' : '' }}
-
+ 
 
         </div>
         <div class="card-body">
             <h5 class="card-title">Silahkan Scan Code QR Untuk melakukan </h5>
-            <p class="card-text mt-4"><img src="{{ URL::asset('dist/img/pretest/' . $id . '.png') }}" class="img-fluid"
-                    width="45%" alt="pretest"></p>
-            <a href="{{ $pre->link }}" target="_BLANK" class="btn btn-primary">Link Pre
-                Test </a>
+            <p class="card-text mt-4">
+
+                
+                <img src="{{ isset($pre) ? URL::asset('dist/img/pretest/' . $id . '.png') : URL::asset('dist/img/posttest/' . $id . '.png') }}" class="img-fluid"
+                    width="45%" alt=" {{ isset($pre) ? 'pretest' : 'posttest' }}">
+                
+                </p>
+
+
+
+            <a href=" {{ isset($pre) ? $pre->link : $post->link }}" target="_BLANK" class="btn btn-primary"> {{ isset($pre) ? 'link Pre Test' : 'link Post Test' }}</a>
         </div>
         <div class="card-footer mt-3">
-            {{ $pre->link }}
+             {{ isset($pre) ? $pre->link : $post->link }}
         </div>
     </div>
 
