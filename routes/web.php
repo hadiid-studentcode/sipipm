@@ -48,8 +48,13 @@ Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth'
 Route::resource('/mengelola-materi', MengelolaMateriController::class)->middleware('auth');
 Route::resource('/bank-materi', SilabusController::class)->middleware('auth');
 
-Route::resource('/pre-post-test', PrepostTestController::class)->middleware('auth');
+Route::resource('/pre-post-test', PrepostTestController::class);
 
+
+
+
+Route::get('/pre-post-test/{idmateri}/{pre}', [PrepostTestController::class, 'pretest'])->middleware('auth');
+Route::get('/pre-post-test/{idmateri}/{post}', [PrepostTestController::class, 'posttest'])->middleware('auth');
 
 
 

@@ -129,7 +129,7 @@
             <tfoot>
                 <tr>
                     <th></th>
-                    <th>Total Kepanitiaan : 100 Orang</th>
+                    <th>Total Kepanitiaan : {{ $total }} Orang</th>
                     <th class="d-none"></th>
                     <th class="d-none"></th>
                     <th class="d-none"></th>

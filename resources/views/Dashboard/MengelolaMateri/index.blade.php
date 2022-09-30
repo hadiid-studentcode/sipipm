@@ -82,10 +82,10 @@
                                 <div class="mb-3">
                                     <label for="Materi" class="form-label">Fasilitator Pemateri </label>
 
-                                    <select class="form-select" aria-label="Default select example" name="pemateri"required>
+                                    <select class="form-select" aria-label="Default select example" name="pemateri">
                                         <option selected>Pilih Fasilitator Pemateri</option>
                                         @foreach ($pemateri as $p)
-                                            <option value="<?php echo $p->id; ?>"><?php echo $p->nama; ?></option>
+                                            <option value="<?php echo $p->nama; ?>"><?php echo $p->nama; ?></option>
                                         @endforeach
                                     </select>
 
@@ -93,10 +93,10 @@
                                 <div class="mb-3">
                                     <label for="Materi" class="form-label">Fasilitator Pendamping</label>
                                     <select class="form-select" aria-label="Default select example"
-                                        name="pendamping"required>
+                                        name="pendamping">
                                         <option selected>Pilih Fasilitator Pendamping</option>
                                         @foreach ($pendamping as $pen)
-                                            <option value="<?php echo $pen->id; ?>"><?php echo $pen->nama; ?></option>
+                                            <option value="<?php echo $pen->nama; ?>"><?php echo $pen->nama; ?></option>
                                         @endforeach
                                     </select>
                                 </div>

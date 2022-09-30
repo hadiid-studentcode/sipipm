@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materi;
+use App\Models\Preposttest;
 use Illuminate\Http\Request;
 
 class PrepostTestController extends Controller
@@ -18,9 +19,6 @@ class PrepostTestController extends Controller
         $result = new Materi();
 
         $materi = $result->Materi();
-
-
-
 
 
         return view('Dashboard.PrepostTest.index')
@@ -47,29 +45,6 @@ class PrepostTestController extends Controller
      */
     public function store(Request $request)
     {
-        $idmateri = $request->input('idmateri');
-
-
-
-
-
-        $result = new Materi();
-        $tampilkan = $result->materiprepostTest($idmateri);
-
-       
-
-
-
-
-        $materi = $result->Materi();
-
-
-        return view('Dashboard.PrepostTest.index')
-            ->with('title', 'Pre-Post Test')
-            ->with('active', 'PrePostTest')
-            ->with('materi', $materi)
-            ->with('materiPrepostTest', $tampilkan)
-            ->with('materiPrepostTest','');
     }
 
     /**
@@ -80,6 +55,9 @@ class PrepostTestController extends Controller
      */
     public function show($id)
     {
+
+      
+    
     }
 
     /**
@@ -115,4 +93,197 @@ class PrepostTestController extends Controller
     {
         //
     }
+
+    public function pretest($idMateri, $pre){
+
+
+
+        if($pre == 'pre'):
+        
+
+        $result = new Preposttest();
+        $pre = $result->dataPre($idMateri);
+        $pretest = $pre;
+
+
+
+
+
+        switch ($idMateri) {
+
+
+            case 1:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+            case 2:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+            case 3:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+            case 4:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+            case 5:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+            case 6:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+
+
+            case 7:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+            case 8:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+            case 9:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+            case 10:
+                //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                    ->with('pre', $pretest);
+                break;
+
+
+            default:
+
+                return view('Dashboard.PrepostTest.view')
+                    ->with('id', 'Terjadi Kesalahan');
+                break;
+        }
+
+    else:
+            $result = new Preposttest();
+            $post = $result->dataPost($idMateri);
+            $posttest = $post;
+
+
+            dd($posttest);
+
+
+
+
+            switch ($idMateri) {
+
+
+                case 1:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+                case 2:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+                case 3:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+                case 4:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+                case 5:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+                case 6:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+
+
+                case 7:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+                case 8:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+                case 9:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+                case 10:
+                    //    return view('Dashboard.PrepostTest.'.$d->idMateri.'.view')
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', $idMateri)
+                        ->with('post', $posttest);
+                    break;
+
+
+                default:
+
+                    return view('Dashboard.PrepostTest.view')
+                    ->with('id', 'Terjadi Kesalahan');
+                    break;
+            }
+
+
+    endif;
+
+    }
+
+   
 }

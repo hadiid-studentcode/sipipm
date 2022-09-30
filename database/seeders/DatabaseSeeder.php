@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\BankMateri;
+use App\Models\Preposttest;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -53,10 +54,7 @@ class DatabaseSeeder extends Seeder
                             1.	Menerima konsep tauhid sebagai prinsip dasar dalam kehidupan<br>
                             2.	Menerapkan tauhid dalam kehidupan pribadi dan sosial<br>
                             3.	Melaksanakan gerak dakwah amar ma’ruf nahi mungkar dalam bingkai tauhid',
-            "materi" => 'Al-Islam (1):<br>
-                        Tauhid sebagai
-                        Fondasi
-                        Kehidupan',
+            "materi" => 'Al-Islam (1):Tauhid sebagai Fondasi Kehidupan',
             "detailMateri" => ' ●	Makna tauhid<br>
                                 ●	Tauhid sebagai spirit kemajuanumat.<br>
                                 ●	Tauhid dan penegakan amar ma’ruf nahimunkar.',
@@ -290,7 +288,7 @@ tercermin sebagai
 kader
 berkemajuan.',
             "materi" =>
-            "Ke-IPM-an (1):<br>
+            "Ke-IPM-an (1):
 Kepribadian IPM",
             "detailMateri" => '● Pengantar
 KepribadianIPM <br>
@@ -453,7 +451,7 @@ membiasakan
 akhlakulkarimah
 ',
             "materi" =>
-            "Metodologis (1): <br>
+            "Metodologis (1):
 Psikologi dan etika
 organisasi
 ",
@@ -505,7 +503,7 @@ serta cara
 bermusyawa
 rah.',
             "materi" =>
-            "(Muatan Lokal) <br>
+            "(Muatan Lokal)
 Teknik Persidangan",
             "detailMateri" => '● Pengertian
 rapat,
@@ -843,7 +841,133 @@ Kinerja',
         $result->simpanPemateri($agenda12);
         $result->simpanPemateri($agenda13);
         $result->simpanPemateri($agenda14);
-     
+
+
+
+        // panitia
+        \App\Models\Panitia::factory(15)->create();
+        // peserta
+        \App\Models\Peserta::factory(40)->create();
+        // tim fasilitator
+        \App\Models\Fasilitator::factory(15)->create();
+        // mengelola materi
+
+        // pre post tes
+
+        $pre1 = [
+          'test'=>'pre',
+          'idMateri' => 1,
+          'link' => 'https://quizzory.in/id/6333c0041eb83c36b9f495e8',
+        ];
+        $pre2 = [
+            'test' => 'pre',
+            'idMateri' => 2,
+            'link' => 'https://quizzory.in/id/6333c88fd58775368c60a458',
+        ];
+        $pre3 = [
+            'test' => 'pre',
+            'idMateri' => 3,
+            'link' => 'https://quizzory.in/id/6333cb8051271036db7c2d6b',
+        ];
+        $pre4 = [
+            'test' => 'pre',
+            'idMateri' => 4,
+            'link' => 'https://quizzory.in/id/6333ce0f51271036db7c2e12',
+        ];
+        $pre5 = [
+            'test' => 'pre',
+            'idMateri' => 5,
+            'link' => 'https://quizzory.in/id/6333d124a280cd36f9b9fc79',
+        ];
+        $pre6 = [
+            'test' => 'pre',
+            'idMateri' => 6,
+            'link' => 'https://quizzory.in/id/6333d24051271036db7c30a0',
+        ];
+        $pre7 = [
+            'test' => 'pre',
+            'idMateri' => 7,
+            'link' => 'https://quizzory.in/id/6333d37e1eb83c36b9f4a443',
+        ];
+        $pre8 = [
+            'test' => 'pre',
+            'idMateri' => 8,
+            'link' => 'https://quizzory.in/id/6333d49f1767f7370396e0cd',
+        ];
+        $pre9 = [
+            'test' => 'pre',
+            'idMateri' => 9,
+            'link' => 'https://quizzory.in/id/6333d60bd58775368c60aedf',
+        ];
+
+        $result = new Preposttest();
+        $result->simpantest($pre1);
+        $result->simpantest($pre2);
+        $result->simpantest($pre3);
+        $result->simpantest($pre4);
+        $result->simpantest($pre5);
+        $result->simpantest($pre6);
+        $result->simpantest($pre7);
+        $result->simpantest($pre8);
+        $result->simpantest($pre9);
+
+
+        $post1 = [
+            'test' => 'post',
+            'idMateri' => 1,
+            'link' => 'https://quizzory.in/id/6333c66db8f1ce36d24e3fd9',
+        ];
+        $post2 = [
+            'test' => 'post',
+            'idMateri' => 2,
+            'link' => 'https://quizzory.in/id/6333ca95b8f1ce36d24e4592',
+        ];
+        $post3 = [
+            'test' => 'post',
+            'idMateri' => 3,
+            'link' => 'https://quizzory.in/id/6333cb9c1eb83c36b9f4a02d',
+        ];
+        $post4 = [
+            'test' => 'post',
+            'idMateri' => 4,
+            'link' => 'https://quizzory.in/id/6333ce82d58775368c60aaae',
+        ];
+        $post5 = [
+            'test' => 'post',
+            'idMateri' => 5,
+            'link' => 'https://quizzory.in/id/6333d12451271036db7c2fb6',
+        ];
+        $post6 = [
+            'test' => 'post',
+            'idMateri' => 6,
+            'link' => 'https://quizzory.in/id/6336900ba280cd36f9bbdb21',
+        ];
+        $post7 = [
+            'test' => 'post',
+            'idMateri' => 7,
+            'link' => 'https://quizzory.in/id/6333d257f808e73692d38a7a',
+        ];
+        $post8= [
+            'test' => 'post',
+            'idMateri' => 8,
+            'link' => 'https://quizzory.in/id/6333d392b8f1ce36d24e4b97',
+        ];
+        $post9 = [
+            'test' => 'post',
+            'idMateri' => 9,
+            'link' => 'https://quizzory.in/id/6333d61ed58775368c60aef1',
+        ];
+
+
+        $result->simpantest($post1);
+        $result->simpantest($post2);
+        $result->simpantest($post3);
+        $result->simpantest($post4);
+        $result->simpantest($post5);
+        $result->simpantest($post6);
+        $result->simpantest($post7);
+        $result->simpantest($post8);
+        $result->simpantest($post9);
         
        
     }

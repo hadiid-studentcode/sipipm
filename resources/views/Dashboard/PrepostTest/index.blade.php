@@ -5,7 +5,7 @@
         <div class="card-header">
             <h3 class="card-title">
 
-                <form action="{{ URL::asset('/pre-post-test') }}" method="post">
+                {{-- <form action="{{ URL::asset('/pre-post-test') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
 
@@ -13,7 +13,8 @@
                             aria-label="Recipient's username" aria-describedby="button-addon2" name="idmateri">
                             <option selected>Pilih Materi</option>
                             @foreach ($materi as $m)
-                                <option value="{{ $m->id }}"><?php echo $m->materi; ?></option>
+                              
+                                <option value="{{ $m->idMateri }}"></option>
                             @endforeach
 
 
@@ -21,7 +22,7 @@
 
 
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Pilih</button>
-                    </div>
+                    </div> --}}
 
                 </form>
 
@@ -39,47 +40,41 @@
             <thead>
                 <tr>
                     <th>NO</th>
-                    <th>Nama Peserta</th>
-                    <th>Nilai Pra Test</th>
-                    <th>Nilai Post Test</th>
+                    <th>Materi</th>
                     <th>Aksi</th>
 
                 </tr>
             </thead>
             <tbody>
 
-
-                
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-
-
-
-
-                        </tr>
-                 
+                @foreach ($materi as $m)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td><?php echo $m->materi; ?></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                            
+                                <div class="d-grid gap-2 d-md-block">
+                                    
+                                    <a  href="{{ URL::asset('/pre-post-test/' . $m->idMateri.'/pre' ) }}" class="btn btn-primary" target="_BLANK" type="submit">PRE TEST</a>
+                                    <a  href="{{ URL::asset('/pre-post-test/' . $m->idMateri.'/post') }}" class="btn btn-primary" target="_BLANK" type="submit">POST TEST</a>
+                                </div>
 
+                                {{-- modal --}}
+
+                            </div>
+                        </td>
+
+                    </tr>
+                @endforeach
 
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Total Materi :</th>
                     <th></th>
                     <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+
 
                 </tr>
             </tfoot>

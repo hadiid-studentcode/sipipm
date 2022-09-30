@@ -77,4 +77,11 @@ class Panitia extends Model
 
     return $deleted;
   }
+
+  public function totalPanitia()
+  {
+    $result = DB::table('panitia')->count();
+
+    return $result;
+  }
 }

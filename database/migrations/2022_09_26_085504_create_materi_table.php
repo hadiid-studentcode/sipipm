@@ -20,8 +20,8 @@ return new class extends Migration
             $table->time('waktu_sampai');
             $table->foreignId('idMateri')->references('id')->on('bank_materi')->onDelete('cascade')->onUpdate('cascade');
             $table->string('PenanggungJawab','100');
-            $table->foreignId('fasilitator_pemateri')->nullable();
-            $table->foreignId('fasilitator_pendamping')->nullable();
+            $table->string('fasilitator_pemateri')->nullable();
+            $table->string('fasilitator_pendamping')->nullable();
             $table->enum('status', ['Selesai', 'Belum Selesai']);
             $table->timestamps();
         });

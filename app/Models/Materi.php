@@ -64,7 +64,7 @@ class Materi extends Model
     public function Materi()
     {
         $result =  DB::table('materi')
-            ->select('materi.id', 'bank_materi.materi',)
+            ->select('materi.id','materi.idMateri', 'bank_materi.materi',)
             ->join('bank_materi', 'materi.idMateri', '=', 'bank_materi.id')
 
 

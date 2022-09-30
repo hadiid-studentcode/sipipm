@@ -22,6 +22,7 @@ class KepanitiaanController extends Controller
         $data = new Panitia();
         $ketuaPanitia = $data->contackPerson();
         $tampilPanitia = $data->queryPanitia();
+        $total = $data->totalPanitia();
 
 
 
@@ -34,7 +35,8 @@ class KepanitiaanController extends Controller
             ->with('active', 'kepanitiaan')
             ->with('panitia', $panitia)
             ->with('ketuaPanitia', $ketuaPanitia)
-            ->with('dataPanitia', $tampilPanitia);
+            ->with('dataPanitia', $tampilPanitia)
+            ->with('total',$total);
     }
 
     /**

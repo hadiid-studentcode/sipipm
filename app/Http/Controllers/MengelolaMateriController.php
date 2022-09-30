@@ -94,8 +94,8 @@ class MengelolaMateriController extends Controller
             'waktu_sampai' => $request->input('wsampai'),
             'idMateri' => $request->input('materi'),
             'PenanggungJawab' => $request->input('pj'),
-            'id_fasilitator_pemateri' => $request->input('pemateri'),
-            'id_fasilitator_pendamping' => $request->input('pendamping'),
+            'fasilitator_pemateri' => $request->input('pemateri'),
+            'fasilitator_pendamping' => $request->input('pendamping'),
             'status' => 'Belum Selesai'
         ];
 
