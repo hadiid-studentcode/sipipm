@@ -74,15 +74,28 @@
             </thead>
             <tbody>
 
-                @foreach ($peserta as $p)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $p->nama }}</td>
 
+                @if (isset($peserta))
+                    @foreach ($peserta as $p)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $p->nama }}</td>
+
+                            <td>
+                                <input type="text" class="form-control" size="1">
+                            </td>
+                            <td><input type="text" class="form-control" size="1">
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
-                @endforeach
+                @endif
 
 
             </tbody>
