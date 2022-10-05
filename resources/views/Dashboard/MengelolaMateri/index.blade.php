@@ -124,7 +124,7 @@
                     <th>Penanggung Jawab</th>
                     <th>Fasilitator Pemateri</th>
                     <th>Fasilitator Pendamping</th>
-                    <th>Status</th>
+                 
                 </tr>
             </thead>
             <tbody>
@@ -137,7 +137,7 @@
                         <td>{{ $m->PenanggungJawab }}</td>
                         <td>{{ $m->fasilitator_pemateri }}</td>
                         <td>{{ $m->fasilitator_pendamping }}</td>
-                        <td>{{ $m->status }}</td>
+                     
 
 
 
@@ -153,7 +153,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
+                  
                     <th>Total Materi : {{ $jumlah }}</th>
                 </tr>
             </tfoot>

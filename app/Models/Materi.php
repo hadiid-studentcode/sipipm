@@ -99,4 +99,16 @@ class Materi extends Model
 
         return $result;
     }
+
+    public function MateriTerpilih($id){
+        $result = DB::table('materi')
+            ->select('materi.*','bank_materi.materi')
+            ->join('bank_materi', 'materi.idMateri', '=', 'bank_materi.id')
+
+            ->where('materi.id', '=', $id)
+
+            ->first();
+
+        return $result;
+    }
 }

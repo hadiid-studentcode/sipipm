@@ -10,6 +10,7 @@ use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\PrepostTestController;
 use App\Http\Controllers\MengelolaMateriController;
 use App\Http\Controllers\MengelolaKegiatanController;
+use App\Http\Controllers\PemahamanKeaktifanController;
 
 
 /*
@@ -59,5 +60,7 @@ Route::get('/pre-post-test/{idmateri}/{post}', [PrepostTestController::class, 'p
 
 
 Route::resource('/pemahaman-keaktifan', PemahamanKeaktifanController::class)->middleware('auth');
+
+// Route::get('/pre-post-test/{idmateri}', [PemahamanKeaktifanController::class, 'materi'])->middleware('auth');
 
 

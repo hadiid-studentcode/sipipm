@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fasilitator;
+use App\Models\Materi;
 use Illuminate\Http\Request;
 
 class PemahamanKeaktifanController extends Controller
@@ -13,7 +15,17 @@ class PemahamanKeaktifanController extends Controller
      */
     public function index()
     {
-        //
+
+        $data = new Materi();
+        $materi = $data->Materi();
+
+
+     
+
+        return view('Dashboard.Pemahaman.index')
+        ->with('title','Pemahaman-keaktifan')
+        ->with('active', 'pemahaman-keaktidan')
+        ->with('materi',$materi);
     }
 
     /**
@@ -45,7 +57,32 @@ class PemahamanKeaktifanController extends Controller
      */
     public function show($id)
     {
-        //
+        // tampilakn materi  dan hari, tanggal, waktu
+
+        $result = new Materi();
+        $materihtw = $result->MateriTerpilih($id);
+
+
+        $materi = $result->Materi();
+
+
+
+
+
+        // tampilkan pemateri dan fasilitator pendamping
+
+
+
+
+       
+
+
+        return view('Dashboard.Pemahaman.index')
+        ->with('title', 'Pemahaman-keaktifan')
+        ->with('active', 'pemahaman-keaktidan')
+        ->with('materi', $materi)
+            ->with('datamateri', $materihtw);
+    
     }
 
     /**
