@@ -15,10 +15,13 @@
                         Materi : {{ isset($datamateri) ? $datamateri->materi : '' }}
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Pemateri : {{ isset($datamateri) ? $datamateri->fasilitator_pemateri : '' }} </li>
-                          <li class="list-group-item">Fasilitator : {{ isset($datamateri) ? $datamateri->fasilitator_pendamping : '' }}</li>
+                        <li class="list-group-item">Pemateri :
+                            {{ isset($datamateri) ? $datamateri->fasilitator_pemateri : '' }} </li>
+                        <li class="list-group-item">Fasilitator :
+                            {{ isset($datamateri) ? $datamateri->fasilitator_pendamping : '' }}</li>
                         <li class="list-group-item">Hari, Tanggal : {{ isset($datamateri) ? $datamateri->hari : '' }} </li>
-                        <li class="list-group-item">Waktu : {{ isset($datamateri) ? $datamateri->waktu_dari .'-' .$datamateri->waktu_sampai : '' }} </li>
+                        <li class="list-group-item">Waktu :
+                            {{ isset($datamateri) ? $datamateri->waktu_dari . '-' . $datamateri->waktu_sampai : '' }} </li>
                     </ul>
                 </div>
             </h3>
@@ -40,7 +43,8 @@
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($materi as $m)
-                                <li><a class="dropdown-item" href="{{ asset('/pemahaman-keaktifan/'.$m->id) }}">{{ $m->materi }}</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{{ asset('/pemahaman-keaktifan/' . $m->id) }}">{{ $m->materi }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -62,7 +66,7 @@
                 <tr>
                     <th>NO</th>
                     <th>Nama Peserta</th>
-                    <th>Materi</th>
+
                     <th>Nilai Pre Test</th>
                     <th>Nilai Post Test</th>
 
@@ -70,14 +74,15 @@
             </thead>
             <tbody>
 
+                @foreach ($peserta as $p)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $p->nama }}</td>
 
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                @endforeach
 
 
             </tbody>
@@ -85,7 +90,7 @@
                 <tr>
                     <th>Total Materi :</th>
                     <th></th>
-                    <th></th>
+
                     <th></th>
                     <th></th>
 

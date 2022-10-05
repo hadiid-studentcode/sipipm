@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fasilitator;
 use App\Models\Materi;
+use App\Models\Peserta;
 use Illuminate\Http\Request;
 
 class PemahamanKeaktifanController extends Controller
@@ -20,12 +21,14 @@ class PemahamanKeaktifanController extends Controller
         $materi = $data->Materi();
 
 
-     
+
+
+
 
         return view('Dashboard.Pemahaman.index')
-        ->with('title','Pemahaman-keaktifan')
-        ->with('active', 'pemahaman-keaktidan')
-        ->with('materi',$materi);
+            ->with('title', 'Pemahaman-keaktifan')
+            ->with('active', 'pemahaman-keaktidan')
+            ->with('materi', $materi);
     }
 
     /**
@@ -66,6 +69,10 @@ class PemahamanKeaktifanController extends Controller
         $materi = $result->Materi();
 
 
+        // peserta 
+        $data = new Peserta();
+        $peserta = $data->queryPeserta();
+
 
 
 
@@ -74,15 +81,15 @@ class PemahamanKeaktifanController extends Controller
 
 
 
-       
+
 
 
         return view('Dashboard.Pemahaman.index')
-        ->with('title', 'Pemahaman-keaktifan')
-        ->with('active', 'pemahaman-keaktidan')
-        ->with('materi', $materi)
-            ->with('datamateri', $materihtw);
-    
+            ->with('title', 'Pemahaman-keaktifan')
+            ->with('active', 'pemahaman-keaktidan')
+            ->with('materi', $materi)
+            ->with('datamateri', $materihtw)
+            ->with('peserta', $peserta);
     }
 
     /**
