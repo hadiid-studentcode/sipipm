@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\SilabusController;
+use App\Http\Controllers\OutboundController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\PrepostTestController;
 use App\Http\Controllers\MengelolaMateriController;
 use App\Http\Controllers\MengelolaKegiatanController;
 use App\Http\Controllers\PemahamanKeaktifanController;
+
 
 
 /*
@@ -62,5 +64,8 @@ Route::get('/pre-post-test/{idmateri}/{post}', [PrepostTestController::class, 'p
 Route::resource('/pemahaman-keaktifan', PemahamanKeaktifanController::class)->middleware('auth');
 
 // Route::get('/pre-post-test/{idmateri}', [PemahamanKeaktifanController::class, 'materi'])->middleware('auth');
+
+
+Route::resource('/outbound', OutboundController::class)->middleware('auth');
 
 

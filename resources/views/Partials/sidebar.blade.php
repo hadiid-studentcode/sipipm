@@ -160,7 +160,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ URL::asset('/penjualan/create') }}" class="nav-link">
+                            <a href="{{ URL::asset('/outbound') }}" class="nav-link {{ $active == 'outbound' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Outbound</p>
                             </a>

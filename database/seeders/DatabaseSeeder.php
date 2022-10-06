@@ -845,11 +845,11 @@ Kinerja',
 
 
         // panitia
-        // \App\Models\Panitia::factory(15)->create();
+        \App\Models\Panitia::factory(15)->create();
         // peserta
-        // \App\Models\Peserta::factory(40)->create();
+        \App\Models\Peserta::factory(2)->create();
         // tim fasilitator
-        // \App\Models\Fasilitator::factory(15)->create();
+        \App\Models\Fasilitator::factory(5)->create();
         // mengelola materi
 
         // pre post tes
