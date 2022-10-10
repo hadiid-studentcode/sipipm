@@ -105,6 +105,7 @@
                     </a>
 
                 </li>
+              
 
                 <li class="nav-header">Kegiatan</li>
                 <li class="nav-item">
@@ -195,6 +196,16 @@
                                 <p>RKTL</p>
                             </a>
                         </li>
+                          <li class="nav-item">
+                    <a href="{{ URL::asset('/hasil-belajar') }}" class="nav-link {{ $active == 'hasilBelajar' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Hasil Belajar Peserta
+
+                        </p>
+                    </a>
+
+                </li>
 
                     </ul>
 

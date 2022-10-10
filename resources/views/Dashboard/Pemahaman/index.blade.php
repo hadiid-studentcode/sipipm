@@ -10,6 +10,7 @@
             <h3 class="card-title">
 
 
+
                 <div class="card">
                     <div class="card-header">
                         Materi : {{ isset($datamateri) ? $datamateri->materi : '' }}
@@ -31,10 +32,13 @@
 
         <ul class="nav justify-content-start container">
             <li class="nav-item">
-
-            </li>
-            <li class="nav-item">
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                    @if (isset($peserta))
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#nilai">Penilian</button>
+                    @else
+                    @endif
 
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -50,13 +54,78 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled"></a>
-            </li>
+
+
         </ul>
+
+        @if (isset($peserta))
+            <!-- Modal -->
+
+
+            <div class="modal fade" id="nilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="{{ URL::asset('/pemahaman-keaktifan') }}" method="POST">
+                        @csrf
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Lembar Penilaian
+                                    materi
+                                </h1>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="mb-3">
+                                    <input type="hidden" name="idmateri" value="{{ $idmateri }}">
+                                    <input type="hidden" name="pemateri" value="{{ $datamateri->fasilitator_pemateri }}">
+                                      <input type="hidden" name="pendamping" value="{{ $datamateri->fasilitator_pendamping }}">
+                                    <label for="nama" class="form-label">Nama Peserta</label>
+
+
+
+                                    <select class="form-select" aria-label="Default select example" name="idpeserta"required>
+                                        <option selected>Pilih Peserta</option>
+
+                                        @foreach ($peserta as $p)
+                                            <option value="{{ $p->id }}">{{ $loop->iteration }} {{ $p->nama }}
+                                            </option>
+                                        @endforeach
+
+
+                                    </select>
+
+                                </div>
+                                <div class="mb-3">
+                                   
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="Pre Test" class="form-label">Pre Test</label>
+                                            <input type="number" class="form-control" name="pretest" autofocus
+                                                min="0" max="100">
+                                        </div>
+                                        <div class="col">
+                                            <label for="Post Test" class="form-label">Post Test</label>
+                                            <input type="number" class="form-control" name="posttest" min="0"
+                                                max="100">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        @else
+        @endif
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -75,27 +144,35 @@
             <tbody>
 
 
-                @if (isset($peserta))
-                    @foreach ($peserta as $p)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $p->nama }}</td>
+                @if(isset($nilai))
 
-                            <td>
-                                <input type="text" class="form-control" size="1">
-                            </td>
-                            <td><input type="text" class="form-control" size="1">
-                            </td>
-                        </tr>
-                    @endforeach
+                @foreach($nilai as $n)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $n->peserta->nama }}</td>
+
+                    <td>{{ $n->n_preTest }}</td>
+                    <td>{{ $n->n_postTest }}</td>
+                </tr>
+
+                @endforeach
+
+
                 @else
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+
+
+
+                 <tr>
+                    <td></td>
+                    <td></td>
+
+                    <td></td>
+                    <td></td>
+                </tr>
+
+
                 @endif
+
 
 
             </tbody>

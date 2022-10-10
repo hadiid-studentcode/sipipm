@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Fasilitator;
 use App\Models\Materi;
+use App\Models\Notif;
+use App\Models\PemahamanKeaktifan;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
 
@@ -49,7 +51,40 @@ class PemahamanKeaktifanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       
+
+        $idmateri = $request->input('idmateri');
+        $pemateri = $request->input('pemateri');
+        $pendamping = $request->input('pendamping');
+        $idpeserta =  $request->input('idpeserta');
+        $pretest = $request->input('pretest');
+        $posttest = $request->input('posttest');
+
+
+        $data = [
+            'id_peserta' => $idpeserta,
+            'id_materi' => $idmateri,
+            'fasilitator_pemateri' => $pemateri,
+            'fasilitator_pendamping' => $pendamping,
+            'n_preTest' => $pretest,
+            'n_postTest' => $posttest
+
+
+        ];
+
+
+        // simpan nilai pemahaman materi
+        $result = new PemahamanKeaktifan();
+        $result->simpanNilai($data);
+
+        $pecahurl = explode('/', $_SERVER['REQUEST_URI']);
+        $url = '/' . $pecahurl[4];
+
+        // simpan notif
+        $notif = new Notif();
+        $notif->insertNotif('Nilai Berhasil Ditambahkan ! ', $url);
+        return redirect('/pemahaman-keaktifan/'. $idmateri);
     }
 
     /**
@@ -62,6 +97,10 @@ class PemahamanKeaktifanController extends Controller
     {
         // tampilakn materi  dan hari, tanggal, waktu
 
+        $idmateri = $id;
+
+
+
         $result = new Materi();
         $materihtw = $result->MateriTerpilih($id);
 
@@ -72,6 +111,13 @@ class PemahamanKeaktifanController extends Controller
         // peserta 
         $data = new Peserta();
         $peserta = $data->queryPeserta();
+
+
+        // nilai materi
+        $data = new PemahamanKeaktifan();
+        $nilai =$data->nilaiMateri($id);
+
+
 
 
 
@@ -89,7 +135,9 @@ class PemahamanKeaktifanController extends Controller
             ->with('active', 'pemahaman-keaktidan')
             ->with('materi', $materi)
             ->with('datamateri', $materihtw)
-            ->with('peserta', $peserta);
+            ->with('peserta', $peserta)
+            ->with('idmateri', $idmateri)
+            ->with('nilai',$nilai);
     }
 
     /**

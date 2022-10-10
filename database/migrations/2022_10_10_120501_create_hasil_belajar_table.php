@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemahaman', function (Blueprint $table) {
+        Schema::create('hasil_belajar', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_peserta')->references('id')->on('peserta')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_nama_peserta')->references('id')->on('peserta')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('id_materi')->references('id')->on('materi')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('fasilitator_pemateri');
-            $table->string('fasilitator_pendamping');
-            $table->integer('n_preTest');
-            $table->integer('n_postTest');
-
+            $table->enum('pre',['A','B','C','D','E']);
+            $table->integer('nominal');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemahaman');
+        Schema::dropIfExists('hasil_belajar');
     }
 };

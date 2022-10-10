@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\PrepostTestController;
+use App\Http\Controllers\HasilbelajarController;
 use App\Http\Controllers\MengelolaMateriController;
 use App\Http\Controllers\MengelolaKegiatanController;
 use App\Http\Controllers\PemahamanKeaktifanController;
@@ -67,5 +68,8 @@ Route::resource('/pemahaman-keaktifan', PemahamanKeaktifanController::class)->mi
 
 
 Route::resource('/outbound', OutboundController::class)->middleware('auth');
+
+
+Route::resource('/hasil-belajar', HasilbelajarController::class)->middleware('auth');
 
 
