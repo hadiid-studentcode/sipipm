@@ -7,7 +7,7 @@ use App\Models\Notif;
 use App\Models\Panitia;
 use Illuminate\Http\Request;
 
-class MengelolaKegiatanController extends Controller
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class MengelolaKegiatanController extends Controller
 
 
         return view('dashboard.MengelolaKegiatan.index')
-            ->with('title', 'Mengelola Kegiatan')
+            ->with('title', 'Kegiatan')
             ->with('active', 'kegiatan')
             ->with('kegiatanAcara', $kegiatan);
     }
@@ -106,7 +106,7 @@ class MengelolaKegiatanController extends Controller
 
 
 
-       
+
 
 
 

@@ -17,7 +17,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://kit.fontawesome.com/682b10792d.js" crossorigin="anonymous"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
         href="{{ URL::asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -38,7 +38,6 @@
     <!-- fullCalendar -->
     <link rel="stylesheet" href="{{ URL::asset('plugins/fullcalendar/main.css') }}">
     {{-- akhir --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <!-- SweetAlert2 -->
   <link rel="stylesheet" href="{{ URL::asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
@@ -48,7 +47,7 @@
     <link rel="icon" href="{{ asset('dist/img/logotm1.png') }}">
      {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> --}}
 
-    
+
 
     <title>SIP IPM | {{ $title }} </title>
 </head>
@@ -174,7 +173,7 @@
     <script src="{{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/toastr/toastr.min.js') }}"></script>
-    
+
 
     <script>
         $(function() {
@@ -196,7 +195,7 @@
         });
 
 
-       
+
     </script>
 
     <script>

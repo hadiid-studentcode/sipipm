@@ -10,8 +10,8 @@ use App\Http\Controllers\FasilitatorController;
 use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\PrepostTestController;
 use App\Http\Controllers\HasilbelajarController;
-use App\Http\Controllers\MengelolaMateriController;
-use App\Http\Controllers\MengelolaKegiatanController;
+use App\Http\Controllers\MateriController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PemahamanKeaktifanController;
 
 
@@ -45,11 +45,11 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 
 Route::resource('/dashboard', DashboardController::class)->middleware('auth');
-Route::resource('/mengelola-kegiatan', MengelolaKegiatanController::class)->middleware('auth');
+Route::resource('/kegiatan',KegiatanController::class)->middleware('auth');
 Route::resource('/kepanitiaan', KepanitiaanController::class)->middleware('auth');
 Route::resource('/peserta', PesertaController::class)->middleware('auth');
 Route::resource('/fasilitator', FasilitatorController::class)->middleware('auth');
-Route::resource('/mengelola-materi', MengelolaMateriController::class)->middleware('auth');
+Route::resource('/materi',MateriController::class)->middleware('auth');
 Route::resource('/bank-materi', SilabusController::class)->middleware('auth');
 
 Route::resource('/pre-post-test', PrepostTestController::class)->middleware('auth');
