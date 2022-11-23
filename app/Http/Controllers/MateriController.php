@@ -113,7 +113,7 @@ class MateriController extends Controller
         $notif->insertNotif('Materi Berhasil Ditambahkan ! ', $url);
 
 
-        return redirect('/mengelola-materi');
+        return redirect('/materi');
     }
 
     /**

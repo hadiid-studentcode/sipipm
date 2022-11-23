@@ -19,7 +19,7 @@
             {{-- modal --}}
             <div class="modal fade" id="materi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form action="{{ URL::asset('/mengelola-materi') }}" method="post">
+                    <form action="{{ URL::asset('/materi') }}" method="post">
                         @csrf
                         <div class="modal-content">
                             <div class="modal-header">
@@ -124,7 +124,7 @@
                     <th>Penanggung Jawab</th>
                     <th>Fasilitator Pemateri</th>
                     <th>Fasilitator Pendamping</th>
-                 
+
                 </tr>
             </thead>
             <tbody>
@@ -137,7 +137,7 @@
                         <td>{{ $m->PenanggungJawab }}</td>
                         <td>{{ $m->fasilitator_pemateri }}</td>
                         <td>{{ $m->fasilitator_pendamping }}</td>
-                     
+
 
 
 
@@ -153,7 +153,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                  
+
                     <th>Total Materi : {{ $jumlah }}</th>
                 </tr>
             </tfoot>
@@ -167,7 +167,7 @@
             let silabus = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=0,height=0,left=-1000,top=-1000`;
 
-            open('{{ URL::asset('/mengelola-materi/create') }}', 'silabus', silabus);
+            open('{{ URL::asset('/materi/create') }}', 'silabus', silabus);
         }
     </script>
 @endsection
