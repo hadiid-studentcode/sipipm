@@ -82,7 +82,7 @@ class KegiatanController extends Controller
             $notif->insertNotif('Kegiatan Anda Berhasil Ditambahkan ! ', $url);
 
 
-            return redirect('/mengelola-kegiatan');
+            return redirect('/kegiatan');
         } else {
             return back()
                 ->with('warning', 'Kegiatan Gagal Disimpan');

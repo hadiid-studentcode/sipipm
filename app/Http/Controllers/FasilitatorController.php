@@ -53,7 +53,7 @@ class FasilitatorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           
+
             'gambarf' => 'mimes:PDF,pdf,jpg,jpeg,png|max:5000'
         ]);
         if ($request->hasfile('gambarf')) {
@@ -112,15 +112,15 @@ class FasilitatorController extends Controller
 
             return redirect('/fasilitator');
         }
-        
-        
-        
+
+
+
         else{
             return back()
                 ->with('warning', 'Panitia Gagal Disimpan');
         }
 
-    
+
     }
 
     /**

@@ -35,7 +35,7 @@
                                         </div>
                                         <h3>{{ $acara->nama }}</h3>
                                         <p class="text-muted">{{ $acara->tema }}</p>
-                                        <a href="{{ URL::asset('/mengelola-kegiatan/' . $acara->nama) }}"> <button
+                                        <a href="{{ URL::asset('/kegiatan/' . $acara->nama) }}"> <button
                                                 type="button" class="btn btn-info"><i class="bi bi-eye"></i>
                                                 Detail</button></a>
 
@@ -82,7 +82,7 @@
 
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <form action="{{ URL::asset('/mengelola-kegiatan') }}" method="POST"
+                                            <form action="{{ URL::asset('/kegiatan') }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-header">
@@ -291,7 +291,7 @@
                 <?php
                 $data = new App\Models\Kegiatan();
                 $kegiatan = $data->queryKegiatan();
-                
+
                 ?>
 
                 <?php foreach($kegiatan as $kg){  ?>
@@ -302,7 +302,7 @@
                     end: new Date("{{ $kg->sampai }}"),
                     backgroundColor: '#f39c12', //yellow
                     borderColor: '#f39c12', //yellow
-                   
+
                 }, ],
 
                 <?php } ?>
