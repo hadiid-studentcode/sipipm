@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('fasilitator', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 30);
-            $table->string('nba', 30)->nullable();
+            $table->string('nba', 10)->nullable();
             $table->string('wa', 20);
             $table->enum('jk', ['laki - laki', 'perempuan']);
             $table->string('jabatan', 100);
             $table->string('foto')->nullable();
+            $table->string('fasili_pendamping',100)->nullable();
             $table->timestamps();
         });
     }

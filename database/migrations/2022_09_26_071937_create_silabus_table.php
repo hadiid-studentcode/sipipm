@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_materi', function (Blueprint $table) {
+        Schema::create('silabus', function (Blueprint $table) {
             $table->id();
             $table->enum('silabus', ['MABICA,', 'LDPR', 'TM 1', 'TM 2', 'TM 3', 'PFP 1', 'PFP 2']);
             $table->text('standar_kompetensi');

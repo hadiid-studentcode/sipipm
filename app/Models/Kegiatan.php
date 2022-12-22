@@ -19,7 +19,7 @@ class Kegiatan extends Model
         'tujuan',
         'informasi',
         'tempat',
-        'upload_logo'
+        'logo'
 
     ];
     protected $primaryKey = 'id';

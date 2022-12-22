@@ -29,7 +29,8 @@ class FasilitatorFactory extends Factory
 
 
             ]),
-            'foto' => '1663923922899-hadiid.jpg'
+            'foto' => '1663923922899-hadiid.jpg',
+            'fasili_pendamping' => 'hadiid'
         ];
     }
 }

@@ -16,7 +16,8 @@ class Fasilitator extends Model
         'wa',
         'jk',
         'jabatan',
-        'foto'
+        'foto',
+        'fasili_pendamping'
 
     ];
     protected $primaryKey = 'id';
@@ -90,7 +91,7 @@ class Fasilitator extends Model
     {
         $result = DB::table('fasilitator')
         ->select('id','nama','jabatan')
-        
+
         ->where('id', '=', $id)
             ->where('jabatan', '=', 'Fasilitator Pemateri')
 

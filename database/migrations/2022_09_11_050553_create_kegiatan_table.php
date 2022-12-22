@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama',50);
-            $table->string('tema',200);
+            $table->string('nama', 50);
+            $table->string('tema', 255);
             $table->date('dari');
             $table->date('sampai');
-            $table->string('deskripsi');
-            $table->string('tujuan');
+            $table->text('deskripsi');
+            $table->string('tujuan',100);
             $table->text('informasi');
-            $table->string('tempat','100');
-            $table->string('upload_logo');
+            $table->string('tempat', '50');
+            $table->string('logo');
             $table->timestamps();
         });
     }

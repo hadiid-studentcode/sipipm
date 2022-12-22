@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             "informasi" =>
             "Ini adalah informasi yang wajib semuanya mengetahuinya",
             "tempat" => "MA Muhammadiyah Pekanbaru",
-            "upload_logo" => "1663565324307-logotm1.png",
+            "logo" => "1663565324307-logotm1.png",
         ]);
 
         \App\Models\Notif::factory(10)->create();
@@ -158,7 +158,7 @@ KehidupansehariHari
 ● Urgensi dan Sifat
 PHIWM <br>
 ● Kandungan PHIWM
-Strategi 
+Strategi
 internalisasi
 PHIWM
 dalamkehidupan
@@ -811,8 +811,8 @@ Kinerja',
             "referensi_acuan" => '-',
             "penilaian" => '-',
         ];
-       
-      
+
+
 
         $result = new BankMateri();
         $result->simpanPemateri($dataMateri1);
@@ -968,7 +968,7 @@ Kinerja',
         $result->simpantest($post7);
         $result->simpantest($post8);
         $result->simpantest($post9);
-        
-       
+
+
     }
 }

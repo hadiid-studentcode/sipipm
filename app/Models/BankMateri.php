@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankMateri extends Model
+class Silabus extends Model
 {
     use HasFactory;
-    protected $table = 'bank_materi';
+    protected $table = 'silabus';
     protected $fillable = [
         'silabus',
         'standar_kompetensi',
@@ -27,12 +27,12 @@ class BankMateri extends Model
 
     public function simpanPemateri($data)
     {
-        $result = BankMateri::create($data);
+        $result = Silabus::create($data);
         return $result;
     }
 
     public function Silabus(){
-        $result = BankMateri::all();
+        $result = Silabus::all();
 
         return $result;
     }
